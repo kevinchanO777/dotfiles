@@ -118,7 +118,18 @@ ssh-add ~/.ssh/personal &> /dev/null
 # kubectl auto-completion
 source <(kubectl completion zsh)
 
+# fzf
+source <(fzf --zsh)
+
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
 # source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd cd zsh)"
+
+
