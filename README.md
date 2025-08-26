@@ -3,7 +3,7 @@ Bootstrap scripts and dot files
 
 ### Delta
 A better pager for git
-1. Install (delta)[https://github.com/dandavison/delta]
+1. Install [delta](https://github.com/dandavison/delta)
 
 ### Tmux
 
