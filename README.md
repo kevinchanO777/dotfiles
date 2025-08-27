@@ -1,6 +1,12 @@
 # dotfiles
 Bootstrap scripts and dot files
 
+### Oh-my-zsh
+
+### Neovim
+1. Install nvim
+2. Install [LazyVim](https://github.com/LazyVim/LazyVim) 
+
 ### Delta
 A better pager for git
 1. Install [delta](https://github.com/dandavison/delta)

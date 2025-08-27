@@ -1,12 +1,13 @@
 [core]
-	pager = delta
+  pager = delta
+  editor = nvim
 [user]
-	name = kevinhmchan
-	email = kevinchan714456@gmail.com
+  name = kevinhmchan
+  email = kevinchan714456@gmail.com
 [interactive]
-	diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [delta]
-	navigate = true
-    side-by-side = true
+  navigate = true
+  side-by-side = true
 [merge]
-	conflictStyle = zdiff3
+  conflictStyle = zdiff3
