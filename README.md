@@ -4,8 +4,10 @@ Bootstrap scripts and dot files
 ### Oh-my-zsh
 
 ### Neovim
-1. Install nvim
-2. Install [LazyVim](https://github.com/LazyVim/LazyVim) 
+1. Install nvim >= 0.10
+2. `cp -r nvim .config/`
+3. `nvim` 
+4. Run lazyvim health check`LazyHealth`
 
 ### Delta
 A better pager for git
