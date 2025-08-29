@@ -104,15 +104,31 @@ alias rb="source ~/.zshrc"
 alias path='echo -e ${PATH//:/\\n}'
 alias nv="nvim"
 
-# tmux ssh agent stale socket fix
-if tmux ls &> /dev/null; then
-    eval $(tmux show-env -s | grep '^SSH_')
-fi
-
 # Brew auto-update frequency (12 days)
 export HOMEBREW_AUTO_UPDATE_SECS=1036800
 
-ssh-add ~/.ssh/personal &> /dev/null
+# tmux ssh agent stale socket fix (only when inside tmux)
+if [ -n "$TMUX" ]; then
+    eval "$(tmux show-env -s | grep '^SSH_')" 2>/dev/null
+fi
+
+# SSH agent management: start a user agent only if current one is unusable or is launchd (macos only) socket
+is_macos_launchd_socket() {
+  [ -n "$SSH_AUTH_SOCK" ] && [[ "$SSH_AUTH_SOCK" == /private/tmp/com.apple.launchd.*/* ]]
+}
+
+agent_works() { ssh-add -l >/dev/null 2>&1; }
+
+start_user_agent() {
+  eval "$(ssh-agent -s)" >/dev/null
+  ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/personal >/dev/null 2>&1
+}
+
+if ! agent_works; then
+  if is_macos_launchd_socket || [ -z "$SSH_AUTH_SOCK" ]; then
+    start_user_agent
+  fi
+fi
 
 
 # kubectl auto-completion
@@ -127,9 +143,12 @@ export FZF_CTRL_T_OPTS="
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 # source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd cd zsh)"
-
-
