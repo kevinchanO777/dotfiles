@@ -8,6 +8,8 @@ return {
         "docker-language-server",
         "dockerfile-language-server",
         "shellcheck",
+        "kube-linter",
+        "yamlfmt",
       },
     },
   },
