@@ -1,3 +1,5 @@
+-- LSP
+-- Use `MasonInstall` command
 return {
   {
     "mason-org/mason.nvim",
@@ -11,6 +13,8 @@ return {
         "yamlfmt",
         "kube-linter",
         "yaml-language-server",
+        "gopls",
+        "helm-ls",
       },
     },
   },
