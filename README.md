@@ -10,6 +10,7 @@ Bootstrap scripts and dot files
 2. `cp -r nvim .config/`
 3. `nvim`
 4. Run lazyvim health check`LazyHealth`
+5. Enable _LazyExtras_ within nvim
 
 ### Delta
 
