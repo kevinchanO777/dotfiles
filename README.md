@@ -27,3 +27,7 @@ A better pager for git
 ### [yabai](https://github.com/koekeishiya/yabai)
 
 1. `yabai --start-service`
+
+### Lazygit
+
+1. See config: <https://github.com/jesseduffield/lazygit>
