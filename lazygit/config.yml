@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/refs/tags/v0.55.1/schema/config.json
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
