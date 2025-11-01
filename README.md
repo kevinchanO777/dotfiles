@@ -55,9 +55,17 @@ A better pager for git
 4. Run lazyvim health check `LazyHealth`
 5. Enable _LazyExtras_ within nvim
 
-### [yabai](https://github.com/koekeishiya/yabai)
+### [yabai](https://github.com/koekeishiya/yabai) - Tiling Window Manager
 
 1. `yabai --start-service`
+2. To reload config `yabai --restart-service`
+
+### [JankyBorders](https://github.com/FelixKratz/JankyBorders)
+
+```
+brew tap FelixKratz/formulae
+brew install borders
+```
 
 ### Lazygit
 
