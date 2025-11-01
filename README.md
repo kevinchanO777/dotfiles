@@ -2,6 +2,11 @@
 
 Bootstrap scripts and dot files for mac
 
+### Homebrew
+
+1. `xargs brew install < brew_packages.txt`
+2. `xargs brew install --cask < brew_casks.txt`
+
 ### Install dotfiles
 
 1. Clone this repo to `~`

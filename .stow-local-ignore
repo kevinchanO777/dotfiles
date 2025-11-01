@@ -22,3 +22,6 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+
+# Homebrew packages
+brew*
