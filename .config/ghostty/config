@@ -1,7 +1,8 @@
-theme = Github-Dark-High-Contrast
+theme = Github Dark High Contrast
+# theme = Github Dark Default
 # theme = Dracula
 
-background-opacity = 0.97
+background-opacity = 0.88 
 
 font-size = 18
 
@@ -15,7 +16,7 @@ keybind = cmd+up=goto_split:up
 keybind = cmd+down=goto_split:down
 keybind = cmd+left=goto_split:left
 keybind = cmd+right=goto_split:right
-::
+
 keybind = cmd+shift+e=equalize_splits
 keybind = cmd+shift+space=toggle_split_zoom
 
