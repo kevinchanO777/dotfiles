@@ -2,9 +2,33 @@
 
 Bootstrap scripts and dot files for mac
 
+### Install dotfiles
+
+1. Clone this repo to `~`
+2. `cd dotfiles`
+3. `stow .`
+
 ### Oh-my-zsh
 
 1. Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#basic-installation)
+2. Copy custom prompt to `~/.oh-my-zsh/themes/robbyrussell.zsh-theme`
+
+`robbyrussell.zsh-theme`
+
+```
+PROMPT='[%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}@%M:%{$fg[red]%}%30<...<%~%<<%{$reset_color%}]%(!.#.$) '
+RPROMPT='$(git_prompt_info)'
+
+# PROMPT+=' $(git_prompt_info)'
+
+# PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+# PROMPT+=' $(git_prompt_info)'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+```
 
 ### Tmux
 
