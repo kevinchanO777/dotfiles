@@ -3,3 +3,28 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+gui:
+  nerdFontsVersion: "3"
+  theme:
+    inactiveBorderColor:
+      - "#e6edf3"
+    defaultFgColor:
+      - "#e6edf3"
+    cherryPickedCommitFgColor:
+      - "#d2a8ff"
+    cherryPickedCommitBgColor:
+      - "#e6edf3"
+    activeBorderColor:
+      - "#e6edf3"
+      - "bold"
+    unstagedChangesColor:
+      - "#f85149"
+    selectedLineBgColor:
+      - "#304d75"
+    searchingActiveBorderColor:
+      - "#e6edf3"
+      - "bold"
+    optionsTextColor:
+      - "#d2a8ff"
+os:
+  editPreset: "nvim-remote"

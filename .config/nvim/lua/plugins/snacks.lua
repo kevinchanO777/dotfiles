@@ -3,6 +3,11 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      lazygit = {
+        -- automatically configure lazygit to use the current colorscheme
+        -- and integrate edit with the current neovim instance
+        configure = false,
+      },
       picker = {
         hidden = true, -- for hidden files
         ignored = true, -- for .gitignore files
