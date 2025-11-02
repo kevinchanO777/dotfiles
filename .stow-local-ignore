@@ -25,3 +25,6 @@ _darcs
 
 # Homebrew packages
 brew*
+
+# k9s
+^\.config/k9s/

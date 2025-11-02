@@ -71,3 +71,8 @@ brew install borders
 
 1. See config: <https://github.com/jesseduffield/lazygit>
 2. For Mac: `cp .config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml`
+
+### [k9s](https://github.com/derailed/k9s)
+
+1. Copy `.config/k9s/skins` to `~Library/Application\ Support/k9s/skins`
+2. `export K9S_SKIN="transparent"`
