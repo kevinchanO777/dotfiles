@@ -45,15 +45,14 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 A better pager for git
 
-1. Install [delta](https://github.com/dandavison/delta)
+1. (Optional) Install [delta](https://github.com/dandavison/delta) manually
 
 ### Neovim + LazyVim
 
-1. Install [nvim](https://github.com/neovim/neovim) >= 0.10
-2. `cp -r nvim .config/`
-3. `nvim`
-4. Run lazyvim health check `LazyHealth`
-5. Enable _LazyExtras_ within nvim
+1. (Optional) Install [nvim](https://github.com/neovim/neovim) >= 0.10 manually
+2. `nvim`
+3. Run lazyvim health check `LazyHealth`
+4. Enable _LazyExtras_ within nvim
 
 ### [yabai](https://github.com/koekeishiya/yabai) - Tiling Window Manager
 
@@ -70,4 +69,4 @@ brew install borders
 ### Lazygit
 
 1. See config: <https://github.com/jesseduffield/lazygit>
-2. Change diff pager to _delta_
+2. For Mac: `cp .config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml`
