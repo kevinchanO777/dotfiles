@@ -67,6 +67,7 @@ A better pager for git
 ```
 brew tap FelixKratz/formulae
 brew install borders
+`yabai --restart-service`
 ```
 
 ### Lazygit
