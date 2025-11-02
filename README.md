@@ -11,7 +11,9 @@ Bootstrap scripts and dot files for mac
 
 1. Clone this repo to `~`
 2. `cd dotfiles`
-3. `stow .`
+3. `stow -vvvn .` -> Dry Run
+4. `stow -vvv .`
+5. `stow -vvvD` -> Unstow
 
 ### Oh-my-zsh
 
@@ -74,5 +76,5 @@ brew install borders
 
 ### [k9s](https://github.com/derailed/k9s)
 
-1. Copy `.config/k9s/skins` to `~Library/Application\ Support/k9s/skins`
+1. Copy `k9s/skins` to `~Library/Application\ Support/k9s/skins`
 2. `export K9S_SKIN="transparent"`

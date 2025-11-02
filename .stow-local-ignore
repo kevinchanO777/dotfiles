@@ -23,8 +23,6 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-# Homebrew packages
-brew*
-
-# k9s
-^\.config/k9s/
+# Ignore brew and k9s
+^brew$
+^k9s$
