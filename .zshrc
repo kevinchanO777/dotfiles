@@ -6,6 +6,9 @@ source $ZSH/oh-my-zsh.sh
 # Colored man page using less
 export GROFF_NO_SGR=1
 
+# zsh-autosuggestions color dark grey
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a9a9a9"
+
 # Alias
 alias c=clear
 alias rb="source ~/.zshrc"
