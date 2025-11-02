@@ -72,7 +72,8 @@ export NVM_DIR="$HOME/.nvm"
 # Enable k9s node shell
 export K9S_FEATURE_GATE_NODE_SHELL=true
 
-# source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# Plugins
+plugins=()
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd cd zsh)"
@@ -82,3 +83,7 @@ fpath=(/Users/kevinhmchan/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+
+# fzf-tab after `compinit`
+source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh

@@ -16,7 +16,8 @@ Bootstrap scripts and dot files for mac
 ### Oh-my-zsh
 
 1. Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#basic-installation)
-2. Copy custom prompt to `~/.oh-my-zsh/themes/robbyrussell.zsh-theme`
+2. `git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab`
+3. Copy custom prompt to `~/.oh-my-zsh/themes/robbyrussell.zsh-theme`
 
 `robbyrussell.zsh-theme`
 
