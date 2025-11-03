@@ -19,6 +19,12 @@ return {
   {
     "catppuccin/nvim",
     lazy = false,
+    opts = {
+      transparent_background = true,
+      float = {
+        transparent = true,
+      },
+    },
   },
 
   {
@@ -45,16 +51,28 @@ return {
       require("github-theme").setup({
         options = {
           transparent = true,
+          styles = { -- Style to be applied to different syntax groups
+            comments = "italic", -- Value is any valid attr-list value `:help attr-list`
+            functions = "NONE",
+            keywords = "NONE",
+            variables = "NONE",
+            conditionals = "italic",
+            constants = "NONE",
+            numbers = "NONE",
+            operators = "NONE",
+            strings = "NONE",
+            types = "NONE",
+          },
         },
       })
-
-      vim.cmd("colorscheme github_dark")
     end,
   },
-
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "github_dark_high_contrast",
-  --   },
-  -- },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      -- colorscheme = "rose-pine",
+      -- colorscheme = "catppuccin-mocha",
+      colorscheme = "github_dark_tritanopia",
+    },
+  },
 }
