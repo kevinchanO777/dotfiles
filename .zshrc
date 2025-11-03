@@ -73,7 +73,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # k9s
-export K9S_SKIN="transparent"
+export K9S_SKIN="dracula-transparent"
 # Enable k9s node shell
 export K9S_FEATURE_GATE_NODE_SHELL=true
 
