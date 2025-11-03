@@ -21,11 +21,6 @@ alias l='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=n
 alias ll='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -a -l --git -h --time-style=long-iso'
 alias lg='lazygit'
 
-
-# thefuck - https://github.com/nvbn/thefuck?tab=readme-ov-file#manual-installation
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
-
 # Brew auto-update frequency (12 days)
 export HOMEBREW_AUTO_UPDATE_SECS=1036800
 
