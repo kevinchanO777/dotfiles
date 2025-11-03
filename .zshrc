@@ -76,6 +76,8 @@ export NVM_DIR="$HOME/.nvm"
 export K9S_SKIN="dracula-transparent"
 # Enable k9s node shell
 export K9S_FEATURE_GATE_NODE_SHELL=true
+# Kubectl edit command will use this env var.
+export KUBE_EDITOR="nvim"
 
 # Plugins
 plugins=()
