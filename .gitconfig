@@ -2,7 +2,7 @@
 	pager = delta
 	editor = nvim
 [user]
-	name = kevinhmchan
+	name = Kevin HM Chan
 	email = kevinchan714456@gmail.com
 [interactive]
 	diffFilter = delta --color-only
