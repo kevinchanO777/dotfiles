@@ -4,6 +4,18 @@ git:
     - pager: delta --dark --paging=never
 gui:
   nerdFontsVersion: "3"
+  spinner:
+    frames:
+      - "🌑" # new moon
+      - "🌒" # waxing crescent
+      - "🌓" # first quarter
+      - "🌔" # waxing gibbous
+      - "🌕" # full moon
+      - "🌖" # waning gibbous
+      - "🌗" # last quarter
+      - "🌘" # waning crescent
+    # The "speed" of the spinner in milliseconds.
+    rate: 40
   theme:
     inactiveBorderColor:
       - "#e6edf3"
