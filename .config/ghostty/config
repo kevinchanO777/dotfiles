@@ -23,4 +23,4 @@ keybind = cmd+shift+space=toggle_split_zoom
 keybind = cmd+i=inspector:toggle
 
 # Save with Cmd+S in Vim
-keybind = cmd+s=text::\x1b:w\r
+keybind = cmd+s=text:\x1b:w\r
