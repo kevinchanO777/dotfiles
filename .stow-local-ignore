@@ -23,6 +23,5 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-# Ignore brew and k9s
+# Ignore brew
 ^brew$
-^k9s$

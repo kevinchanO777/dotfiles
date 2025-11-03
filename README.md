@@ -77,5 +77,4 @@ brew install borders
 
 ### [k9s](https://github.com/derailed/k9s)
 
-1. Copy `k9s/skins` to `~Library/Application\ Support/k9s/skins`
-2. `export K9S_SKIN="transparent"`
+Check latest [configuration](https://k9scli.io/topics/config/) if needed!
