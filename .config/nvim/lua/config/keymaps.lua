@@ -9,3 +9,6 @@
 
 -- Exit insert mode by 'jj'
 vim.keymap.set("i", "jj", "<Esc>")
+
+-- Save file using <cmd-s> for macOS
+vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
