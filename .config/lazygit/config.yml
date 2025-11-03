@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/refs/tags/v0.55.1/schema/config.json
 git:
-  paging:
-    pager: delta --dark --paging=never
+  pagers:
+    - pager: delta --dark --paging=never
 gui:
   nerdFontsVersion: "3"
   spinner:
     frames:
-      - "🌑" # new moon
-      - "🌒" # waxing crescent
-      - "🌓" # first quarter
-      - "🌔" # waxing gibbous
-      - "🌕" # full moon
-      - "🌖" # waning gibbous
-      - "🌗" # last quarter
-      - "🌘" # waning crescent
+      - "\U0001F311" # new moon
+      - "\U0001F312" # waxing crescent
+      - "\U0001F313" # first quarter
+      - "\U0001F314" # waxing gibbous
+      - "\U0001F315" # full moon
+      - "\U0001F316" # waning gibbous
+      - "\U0001F317" # last quarter
+      - "\U0001F318" # waning crescent
     # The "speed" of the spinner in milliseconds.
     rate: 40
   theme:
