@@ -1,4 +1,15 @@
+-- <leader>uC to change colorscheme
 return {
+  {
+    "rose-pine/neovim",
+    name = "rosepine",
+    opts = {
+      styles = {
+        transparency = true,
+      },
+    },
+  },
+
   {
     "folke/tokyonight.nvim",
     lazy = false,
