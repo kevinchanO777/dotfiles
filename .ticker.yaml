@@ -1,0 +1,34 @@
+# ~/.ticker.yaml
+show-summary: true
+show-tags: true
+show-fundamentals: true
+show-separator: true
+show-holdings: true
+sort: value
+interval: 5
+currency: USD
+currency-summary-only: true
+watchlist:
+  - NVDA
+  - TSLA
+  - AMZN
+  - QQQ
+  - VOO
+  - WMT
+  - BTC-USD # Bitcoin price via Yahoo
+lots:
+  - symbol: "NVDA"
+    quantity: 70.0
+    unit_cost: 132.418
+  - symbol: "TSLA"
+    quantity: 12.0
+    unit_cost: 381.365
+groups:
+  - name: crypto
+    watchlist:
+      - SHIB-USD
+      - VGX-USD
+    holdings:
+      - symbol: SOL1-USD
+        quantity: 17
+        unit_cost: 159.10
