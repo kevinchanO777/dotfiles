@@ -77,3 +77,10 @@ brew install borders
 ### [k9s](https://github.com/derailed/k9s)
 
 Check latest [configuration](https://k9scli.io/topics/config/) if needed!
+
+### Git gpg key
+
+> [!CAUTION]
+> Make sure name and email match the one in `.gitconfig`
+
+1. Create one if needed: `gpg --full-generate-key`
