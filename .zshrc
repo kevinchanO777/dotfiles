@@ -64,6 +64,8 @@ if ! agent_works; then
   fi
 fi
 
+# ticker auto-completion
+source <(ticker completion zsh)
 
 # kubectl auto-completion
 source <(kubectl completion zsh)
