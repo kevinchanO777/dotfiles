@@ -61,7 +61,7 @@ source <(kubectl completion zsh)
 source <(helm completion zsh)
 
 # Docker auto-completion
-fpath=(/Users/kevinhmchan/.docker/completions $fpath)
+FPATH="$HOME/.docker/completions:$FPATH"
 
 # Homebrew auto-completion
 eval "$(brew shellenv)"
