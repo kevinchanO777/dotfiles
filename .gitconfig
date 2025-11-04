@@ -6,7 +6,6 @@
 [user]
   name = Kevin HM Chan
   email = kevinchan714456@gmail.com
-  signingkey = 461F21828DA52353
 
 [interactive]
   diffFilter = delta --color-only
