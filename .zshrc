@@ -3,6 +3,9 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
+# GPG
+export GPG_TTY=$(tty)
+
 # Change macOS default config directory
 export XDG_CONFIG_HOME="$HOME/.config"
 
