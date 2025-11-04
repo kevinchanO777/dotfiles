@@ -18,9 +18,6 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-# zsh-autosuggestions color dark grey
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a9a9a9"
-
 # Alias
 alias c=clear
 alias rb="source ~/.zshrc"
@@ -63,6 +60,12 @@ source <(kubectl completion zsh)
 # Helm auto-completion
 source <(helm completion zsh)
 
+# Docker auto-completion
+fpath=(/Users/kevinhmchan/.docker/completions $fpath)
+
+# Homebrew auto-completion
+eval "$(brew shellenv)"
+
 # fzf
 source <(fzf --zsh)
 
@@ -85,16 +88,11 @@ export KUBE_EDITOR="nvim"
 
 # Plugins
 plugins=()
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init --cmd cd zsh)"
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/kevinhmchan/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
-# End of Docker CLI completions
-
 
 # fzf-tab after `compinit`
 source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
