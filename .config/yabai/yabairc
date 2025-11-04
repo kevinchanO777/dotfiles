@@ -1,8 +1,14 @@
+# Space 1: Development
+# Space 2: Browser
+# Space 3: Other Applications
+
 # See: https://github.com/koekeishiya/yabai/wiki/Configuration#configuration-file 
 # `yabai --start-service`
 # `yabai --restart-service`
 yabai -m config --space 1 layout bsp
-yabai -m config window_palcement second_child
+yabai -m config --space 2 layout bsp
+yabai -m config --space 1 window_palcement second_child
+yabai -m config --space 2 window_palcement second_child
 
 yabai -m config top_padding    1
 yabai -m config bottom_padding 1
