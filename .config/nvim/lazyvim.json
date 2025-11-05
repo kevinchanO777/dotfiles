@@ -3,7 +3,6 @@
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.markdown",
-    "lazyvim.plugins.extras.ui.indent-blankline",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "install_version": 8,
