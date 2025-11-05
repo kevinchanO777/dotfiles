@@ -1,10 +1,20 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/refs/tags/v0.55.1/schema/config.json
+#
+# Config reference: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 git:
   pagers:
     - pager: delta --dark --paging=never
 gui:
   nerdFontsVersion: "3"
+
+  # If true, display the files in the file views as a tree. If false, display the
+  # files as a flat list.
+  # This can be toggled from within Lazygit with the '`' key, but that will not
+  # change the default.
+  showFileTree: false
+
   spinner:
+    # Add a custom moon spinner
     frames:
       - "\U0001F311" # new moon
       - "\U0001F312" # waxing crescent
@@ -16,6 +26,7 @@ gui:
       - "\U0001F318" # waning crescent
     # The "speed" of the spinner in milliseconds.
     rate: 40
+
   theme:
     inactiveBorderColor:
       - "#e6edf3"
