@@ -3,6 +3,9 @@
   editor = nvim
   whitespace = trailing-space,-space-before-tab,indent-with-non-tab,cr-at-eol
 
+[diff]
+  algorithm = histogram
+
 [user]
   name = Kevin HM Chan
   email = kevinchan714456@gmail.com
