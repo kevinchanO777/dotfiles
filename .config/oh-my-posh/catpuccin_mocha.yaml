@@ -1,12 +1,14 @@
 $schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 palette:
   os: "#ACB0BE"
-  closer: p:os
+  white: "#F0F3F6"
   pink: "#F5C2E7"
-  lavender: "#CB9FFF"
+  dir_red: "#FF9492"
+  orange: "#FF9F3D"
   red: "#F26019"
-  white: "#FFF"
+  purple: "#B6C1FF"
   blue: "#89B4FA"
+  lavender: "#CB9FFF"
   green: "#63FFA1"
 blocks:
   - alignment: left
@@ -19,8 +21,8 @@ blocks:
 
       - type: session
         style: plain
-        template: "{{ .UserName }}@{{ .HostName }} "
-        foreground: p:white
+        template: "{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} "
+        foreground: p:whit
 
       - type: path
         style: plain
@@ -29,7 +31,7 @@ blocks:
           home_icon: "~"
           style: agnoster_short
         template: "{{ .Path }} "
-        foreground: p:pink
+        foreground: p:dir_red
 
       # https://ohmyposh.dev/docs/segments/cli/kubectl
       # - type: kubectl
@@ -55,12 +57,11 @@ blocks:
           revert_icon: " "
           tag_icon: " "
 
-        template: "<b>{{ .HEAD }} <#CB9FFF>{{ if .Commit.Refs.Tags }}{{ .Commit.Refs.Tags }} </><\b>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}<b><#F26019>x</><\b>{{ end }}"
+        template: "<b>{{ .HEAD }}<\b> {{ if .Commit.Refs.Tags }}<#CB9FFF>{{ .Commit.Refs.Tags }} </>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}<b><#FF9F3D>✗</><\b>{{ end }}"
         style: plain
-        foreground: p:blue
+        foreground: p:purple
 
       - type: text
-        # foreground: p:closer
         foreground: p:green
         # template: "\n~"
         # template: "\n$"
