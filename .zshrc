@@ -3,11 +3,17 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
+# Starship custom prompt
+eval "$(starship init zsh)"
+
 # GPG
 export GPG_TTY=$(tty)
 
 # Change macOS default config directory
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# Starship config location
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # Colored man page using less
 # https://www.tecmint.com/view-colored-man-pages-in-linux/
