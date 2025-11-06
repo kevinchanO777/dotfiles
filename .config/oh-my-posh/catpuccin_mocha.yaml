@@ -3,8 +3,11 @@ palette:
   os: "#ACB0BE"
   closer: p:os
   pink: "#F5C2E7"
-  lavender: "#B4BEFE"
+  lavender: "#CB9FFF"
+  red: "#F26019"
+  white: "#FFF"
   blue: "#89B4FA"
+  green: "#63FFA1"
 blocks:
   - alignment: left
 
@@ -17,7 +20,7 @@ blocks:
       - type: session
         style: plain
         template: "{{ .UserName }}@{{ .HostName }} "
-        foreground: p:blue
+        foreground: p:white
 
       - type: path
         style: plain
@@ -28,6 +31,17 @@ blocks:
         template: "{{ .Path }} "
         foreground: p:pink
 
+      # https://ohmyposh.dev/docs/segments/cli/kubectl
+      # - type: kubectl
+      #   style: plain
+      #   template: "\ue81d {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
+      #   properties:
+
+    type: prompt
+
+  - alignment: right
+    segments:
+      # https://ohmyposh.dev/docs/segments/scm/git
       - type: git
         properties:
           branch_icon: " "
@@ -40,22 +54,20 @@ blocks:
           rebase_icon: " "
           revert_icon: " "
           tag_icon: " "
-        # Cant get multi-line working
-        template: "{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}"
-        style: plain
-        foreground: p:lavender
 
-      # https://ohmyposh.dev/docs/segments/cli/kubectl
-      # - type: kubectl
-      #   style: plain
-      #   template: "\ue81d {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
-      #   properties:
+        template: "<b>{{ .HEAD }} <#CB9FFF>{{ if .Commit.Refs.Tags }}{{ .Commit.Refs.Tags }} </><\b>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}<b><#F26019>x</><\b>{{ end }}"
+        style: plain
+        foreground: p:blue
 
       - type: text
-        foreground: p:closer
-        template: "\n>"
+        # foreground: p:closer
+        foreground: p:green
+        # template: "\n~"
+        # template: "\n$"
+        template: "\n󱞩"
         style: plain
 
     type: prompt
+
 final_space: true
 version: 3
