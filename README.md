@@ -62,14 +62,6 @@ A better pager for git
 1. `yabai --start-service`
 2. To reload config `yabai --restart-service`
 
-### [JankyBorders](https://github.com/FelixKratz/JankyBorders)
-
-```
-brew tap FelixKratz/formulae
-brew install borders
-`yabai --restart-service`
-```
-
 ### Lazygit
 
 1. See config: <https://github.com/jesseduffield/lazygit>
