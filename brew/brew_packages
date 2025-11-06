@@ -24,6 +24,7 @@ luarocks
 minikube
 neovim
 pandoc
+pinentry-mac
 poppler
 pwgen
 ripgrep

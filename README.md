@@ -86,11 +86,12 @@ Check latest [configuration](https://k9scli.io/topics/config/) if needed!
 1. Create one if needed: `gpg --full-generate-key`
 2. Install pinentry-mac - GUI for passphrase input
 3. `brew install pinentry-mac`
-4. Add the following line in `~/.gnupg.conf` (check `brew --prefix`)
+4. Add the following line in `~/.gnupg/gpg-agent.conf` (check `brew --prefix`)
     1. `pinentry-program /opt/homebrew/bin/pinentry-mac`
 
 If anything try:
 
+- Checking the local config file location
 - `gpgconf --kill gpg-agent`
 - `gpgconf --show-configs`
 - `killall gpg-agent`
