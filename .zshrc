@@ -70,6 +70,9 @@ source <(kubectl completion zsh)
 # Helm auto-completion
 source <(helm completion zsh)
 
+# yq auto-completion
+source <(yq shell-completion zsh)
+
 # Docker auto-completion
 FPATH="$HOME/.docker/completions:$FPATH"
 
@@ -85,6 +88,7 @@ export FZF_CTRL_T_OPTS="
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

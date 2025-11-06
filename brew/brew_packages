@@ -41,5 +41,6 @@ tmux
 tree
 watch
 yazi
+yq
 zoxide
 zsh-syntax-highlighting
