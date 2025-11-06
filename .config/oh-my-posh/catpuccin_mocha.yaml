@@ -40,7 +40,8 @@ blocks:
           rebase_icon: " "
           revert_icon: " "
           tag_icon: " "
-        template: "{{ .HEAD }} "
+        # Cant get multi-line working
+        template: "{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}"
         style: plain
         foreground: p:lavender
 
@@ -52,7 +53,7 @@ blocks:
 
       - type: text
         foreground: p:closer
-        template: ">"
+        template: "\n>"
         style: plain
 
     type: prompt
