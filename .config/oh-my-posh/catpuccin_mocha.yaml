@@ -7,24 +7,28 @@ palette:
   blue: "#89B4FA"
 blocks:
   - alignment: left
+
     segments:
-      - foreground: p:os
+      - type: os
         style: plain
         template: "{{.Icon}} "
-        type: os
-      - foreground: p:blue
+        foreground: p:os
+
+      - type: session
         style: plain
         template: "{{ .UserName }}@{{ .HostName }} "
-        type: session
-      - foreground: p:pink
+        foreground: p:blue
+
+      - type: path
+        style: plain
         properties:
           folder_icon: ....
           home_icon: "~"
           style: agnoster_short
-        style: plain
         template: "{{ .Path }} "
-        type: path
-      - foreground: p:lavender
+        foreground: p:pink
+
+      - type: git
         properties:
           branch_icon: " "
           cherry_pick_icon: " "
@@ -38,11 +42,19 @@ blocks:
           tag_icon: " "
         template: "{{ .HEAD }} "
         style: plain
-        type: git
-      - style: plain
+        foreground: p:lavender
+
+      # https://ohmyposh.dev/docs/segments/cli/kubectl
+      # - type: kubectl
+      #   style: plain
+      #   template: "\ue81d {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
+      #   properties:
+
+      - type: text
         foreground: p:closer
-        template: 
-        type: text
+        template: ">"
+        style: plain
+
     type: prompt
 final_space: true
 version: 3
