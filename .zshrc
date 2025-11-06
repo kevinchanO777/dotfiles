@@ -6,7 +6,7 @@ source $ZSH/oh-my-zsh.sh
 # Starship custom prompt
 eval "$(starship init zsh)"
 
-# GPG
+# GPG TUI if no GUI i.e. pinentry
 export GPG_TTY=$(tty)
 
 # Change macOS default config directory

@@ -41,7 +41,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 ### Tmux
 
 1. Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (TPM)
-2. Source the .tmux.conf using `tmux source-file ./.tmux.conf`
+2. Source the `.tmux.conf` using `tmux source-file ./.tmux.conf`
 3. Install plugins using `prefix` + `I`
 
 ### Delta
@@ -84,3 +84,13 @@ Check latest [configuration](https://k9scli.io/topics/config/) if needed!
 > Make sure name and email match the one in `.gitconfig`
 
 1. Create one if needed: `gpg --full-generate-key`
+2. Install pinentry-mac - GUI for passphrase input
+3. `brew install pinentry-mac`
+4. Add the following line in `~/.gnupg.conf` (check `brew --prefix`)
+    1. `pinentry-program /opt/homebrew/bin/pinentry-mac`
+
+If anything try:
+
+- `gpgconf --kill gpg-agent`
+- `gpgconf --show-configs`
+- `killall gpg-agent`
