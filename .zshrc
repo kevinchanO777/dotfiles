@@ -11,7 +11,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # eval "$(starship init zsh)"
 
 # Oh My Posh custom prompt
-eval "$(oh-my-posh init --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.json zsh)"
+eval "$(oh-my-posh init --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml zsh)"
 
 # GPG TUI if no GUI i.e. pinentry
 export GPG_TTY=$(tty)
