@@ -3,15 +3,18 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
+# Change macOS default config directory
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Starship custom prompt
-# eval "$(starship init zsh)"
 # export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+# eval "$(starship init zsh)"
+
+# Oh My Posh custom prompt
+eval "$(oh-my-posh init --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.json zsh)"
 
 # GPG TUI if no GUI i.e. pinentry
 export GPG_TTY=$(tty)
-
-# Change macOS default config directory
-export XDG_CONFIG_HOME="$HOME/.config"
 
 # Colored man page using less
 # https://www.tecmint.com/view-colored-man-pages-in-linux/
