@@ -1,6 +1,11 @@
 # dotfiles
 
-Bootstrap scripts and dot files for mac
+Bootstrap scripts and dot files for macOS
+
+## Screenshots
+
+![Screenshots](https://i.imgur.com/Ua4AN06.png)
+![Screenshots](https://i.imgur.com/DRsRZrG.png)
 
 ### Homebrew
 
@@ -79,7 +84,7 @@ Check latest [configuration](https://k9scli.io/topics/config/) if needed!
 2. Install pinentry-mac - GUI for passphrase input
 3. `brew install pinentry-mac`
 4. Add the following line in `~/.gnupg/gpg-agent.conf` (check `brew --prefix`)
-    1. `pinentry-program /opt/homebrew/bin/pinentry-mac`
+   1. `pinentry-program /opt/homebrew/bin/pinentry-mac`
 
 If anything try:
 
