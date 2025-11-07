@@ -1,0 +1,10 @@
+# https://github.com/DavidAnson/markdownlint-cli2
+# https://github.com/LazyVim/LazyVim/discussions/4094
+#
+#
+#
+#
+# Set individual MD rule
+# https://updownpress.github.io/markdown-lint
+config:
+  MD033: false # Inline HTML
