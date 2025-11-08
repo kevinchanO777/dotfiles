@@ -36,6 +36,7 @@ alias nv="nvim"
 alias l='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -l --git -h --time-style=long-iso'
 alias ll='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -a -l --git -h --time-style=long-iso'
 alias lg='lazygit'
+alias pw="pwgen --capitalize --secure --num-passwords 1 10 | tr -d \"\n\" | pbcopy"
 
 # Brew auto-update frequency (12 days)
 export HOMEBREW_AUTO_UPDATE_SECS=1036800
