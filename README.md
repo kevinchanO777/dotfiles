@@ -64,7 +64,7 @@ A better pager for git
 
 ### [Aerospace](https://github.com/nikitabobko/AeroSpace) - Tiling Window Manager
 
-1. `brew install aerospace`
+1. `brew install --cask nikitabobko/tap/aerospace`
 2. Check config path: `aerospace config --config-path`
 3. macOS system settings -> Mission Control -> Group windows by application
 
