@@ -62,10 +62,11 @@ A better pager for git
 3. Run lazyvim health check `LazyHealth`
 4. Enable _LazyExtras_ within nvim
 
-### [yabai](https://github.com/koekeishiya/yabai) - Tiling Window Manager
+### [Aerospace](https://github.com/nikitabobko/AeroSpace) - Tiling Window Manager
 
-1. `yabai --start-service`
-2. To reload config `yabai --restart-service`
+1. `brew install aerospace`
+2. Check config path: `aerospace config --config-path`
+3. macOS system settings -> Mission Control -> Group windows by application
 
 ### Lazygit
 

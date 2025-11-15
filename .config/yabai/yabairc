@@ -1,3 +1,11 @@
+
+### [yabai](https://github.com/koekeishiya/yabai) - Tiling Window Manager
+
+# 1. `yabai --start-service`
+# 2. To reload config `yabai --restart-service`
+
+
+
 # Space 1: Development
 # Space 2: Browser
 # Space 3: Other Applications
