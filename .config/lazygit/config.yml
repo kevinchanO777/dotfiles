@@ -13,6 +13,9 @@ gui:
   # change the default.
   showFileTree: false
 
+  # The number of lines you scroll by when scrolling the main window
+  scrollHeight: 6
+
   spinner:
     # Add a custom moon spinner
     frames:
