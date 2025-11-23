@@ -35,11 +35,11 @@ alias path='echo -e ${PATH//:/\\n}'
 alias nv="nvim"
 alias l='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -l --git -h --time-style=long-iso'
 alias ll='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -a -l --git -h --time-style=long-iso'
-alias lg='lazygit'
 alias pw="pwgen --capitalize --secure --num-passwords 1 10 | tr -d \"\n\" | pbcopy"
+alias lg='lazygit'
+alias gl="git log --all --oneline --graph --decorate --color=always"
+alias gbf="git branch --format='%(refname:short)' | fzf --preview 'git log --oneline --graph --decorate --color=always {} | head -20'"
 
-# Brew auto-update frequency (12 days)
-export HOMEBREW_AUTO_UPDATE_SECS=1036800
 
 # tmux ssh agent stale socket fix (only when inside tmux)
 if [ -n "$TMUX" ]; then
@@ -79,15 +79,18 @@ FPATH="$HOME/.docker/completions:$FPATH"
 
 # Homebrew auto-completion
 eval "$(brew shellenv)"
+# Homebrew auto-update frequency (12 days)
+export HOMEBREW_AUTO_UPDATE_SECS=1036800
 
 # fzf
-source <(fzf --zsh)
-
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# Use tab to select multiple in vanilla fzf
+export FZF_COMPLETION_OPTS='--multi'
+source <(fzf --zsh)
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -103,7 +106,11 @@ export KUBE_EDITOR="nvim"
 
 # Plugins
 plugins=()
+
+# zsh-syntax-highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
 autoload -Uz compinit
