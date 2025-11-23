@@ -33,6 +33,7 @@ alias c=clear
 alias rb="source ~/.zshrc"
 alias path='echo -e ${PATH//:/\\n}'
 alias nv="nvim"
+alias fc="fc -e nvim"
 alias l='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -l --git -h --time-style=long-iso'
 alias ll='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -a -l --git -h --time-style=long-iso'
 alias pw="pwgen --capitalize --secure --num-passwords 1 10 | tr -d \"\n\" | pbcopy"
