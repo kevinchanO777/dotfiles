@@ -42,3 +42,10 @@
 
 [help]
   autocorrect = prompt
+
+[tig]
+  vertical-split = true
+
+[tig "bind"]
+  generic = <Ctrl-h> scroll-left
+  generic = <Ctrl-l> scroll-right
