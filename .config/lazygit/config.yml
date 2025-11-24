@@ -13,6 +13,12 @@ gui:
   # change the default.
   showFileTree: false
 
+  showNumstatInFilesView: true
+
+  # How things are filtered when <ctrl+s>
+  # One of 'substring' (default) | 'fuzzy'
+  filterMode: fuzzy
+
   # The number of lines you scroll by when scrolling the main window
   scrollHeight: 6
 
