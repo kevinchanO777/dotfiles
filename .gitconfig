@@ -9,6 +9,16 @@
 [diff]
   algorithm = histogram
 
+[merge]
+  conflictStyle = zdiff3
+  tool = nvim
+
+# Open 3 buffers with nvim
+# Top -> Local, Remote
+# Bottom -> Merged (Desired) file
+[mergetool "nvim"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [user]
   name = Kevin HM Chan
   email = kevinchan714456@gmail.com
@@ -19,9 +29,6 @@
 [delta]
   navigate = true
   # side-by-side = true
-
-[merge]
-  conflictStyle = zdiff3
 
 [pull]
   rebase = true
