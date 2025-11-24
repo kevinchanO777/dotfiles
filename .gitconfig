@@ -11,6 +11,7 @@
 
 [merge]
   conflictStyle = zdiff3
+  ff = false                # Create extra commit when merging
   tool = nvim
 
 # Open 3 buffers with nvim
