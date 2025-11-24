@@ -12,3 +12,21 @@ vim.keymap.set("i", "jj", "<Esc>")
 
 -- Save file using <cmd-s> for macOS
 vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- Change CWD
+vim.g.startup_cwd = vim.fn.getcwd()
+
+vim.keymap.set("n", "<leader>Cc", function()
+  local cwd = vim.fn.expand("%:p:h")
+  vim.cmd("cd " .. cwd)
+  print("Changed CWD to: " .. cwd)
+end, { desc = "Change CWD to Current Buffer" })
+
+vim.keymap.set("n", "<leader>Cs", function()
+  if vim.g.startup_cwd then
+    vim.cmd("cd " .. vim.g.startup_cwd)
+    print("Changed CWD: " .. vim.g.startup_cwd)
+  else
+    print("Startup directory not set.")
+  end
+end, { desc = "Change CWD to Startup Directory" })
