@@ -6,10 +6,6 @@ source $ZSH/oh-my-zsh.sh
 # Change macOS default config directory
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Starship custom prompt
-# export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-# eval "$(starship init zsh)"
-
 # Oh My Posh custom prompt
 eval "$(oh-my-posh init --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml zsh)"
 
