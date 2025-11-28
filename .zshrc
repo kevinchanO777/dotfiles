@@ -12,6 +12,9 @@ eval "$(oh-my-posh init --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yam
 # GPG TUI if no GUI i.e. pinentry
 export GPG_TTY=$(tty)
 
+# Use Neovim for man pages
+export MANPAGER='nvim +Man!'
+
 # Colored man page using less
 # https://www.tecmint.com/view-colored-man-pages-in-linux/
 export GROFF_NO_SGR=1
