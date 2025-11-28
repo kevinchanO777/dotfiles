@@ -25,3 +25,6 @@ _darcs
 
 # Ignore brew
 ^brew$
+
+# Ignore docs
+^docs$
