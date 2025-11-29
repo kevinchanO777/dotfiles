@@ -142,6 +142,11 @@ gpgconf --launch gpg-agent
 - Run `:checkhealth` for diagnostics
 - Ensure all dependencies are installed via Mason
 
+### Bat Issues
+
+- If bat throws a warning and falls back to default theme, reload the theme
+  using `bat cache --build`
+
 ## Directory Structure
 
 ```sh
