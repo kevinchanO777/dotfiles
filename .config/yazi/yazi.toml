@@ -1,16 +1,17 @@
-[open]
+# Config: https://yazi-rs.github.io/docs/configuration/yazi
+[mgr]
+ratio = [1, 2, 3]
 
+[open]
 prepend_rules = [
   { mime = "video/*", use = "play" },
   { mime = "text/*", use = "edit" },
 ]
 
 [opener]
-
 play = [
   { run = 'open -a "/System/Applications/QuickTime Player.app" "$@"', orphan = true, desc = "QuickTime Player", for = "macos" },
 ]
-
 edit = [
   { run = 'nvim "$@"', block = true, orphan = true, desc = "Neovim", for = "macos" },
 ]
