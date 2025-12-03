@@ -30,3 +30,10 @@ vim.keymap.set("n", "<leader>Cs", function()
     print("Startup directory not set.")
   end
 end, { desc = "Change CWD to Startup Directory" })
+
+-- Yank File Path
+vim.keymap.set("n", "<leader>yp", function()
+  local path = vim.fn.expand("%:p") -- same as above, shorter
+  vim.cmd.let('@+ = "' .. path .. '"')
+  vim.notify(path)
+end, { desc = "Yank absolute file path" })
