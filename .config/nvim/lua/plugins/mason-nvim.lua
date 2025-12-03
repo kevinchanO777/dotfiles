@@ -11,6 +11,7 @@ return {
         "shfmt",
         "docker-language-server",
         "dockerfile-language-server",
+        "hadolint",
         "shellcheck",
         "bash-language-server",
         "yamlfmt",

@@ -5,6 +5,7 @@ return {
     linters_by_ft = {
       -- Existing linters might be here
       yaml = { "yamllint" },
+      dockerfile = { "hadolint" },
     },
   },
 }
