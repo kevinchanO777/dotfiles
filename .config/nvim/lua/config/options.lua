@@ -11,3 +11,12 @@ vim.g.root_spec = { ".git" }
 
 -- Highlight the current column
 -- vim.opt.cursorcolumn = true
+
+-- Filetype configuration for custom file types
+vim.filetype.add({
+  filename = {
+    ["Dockerfile*"] = "dockerfile",
+    ["dockerfile*"] = "dockerfile",
+    ["*.dockerfile"] = "dockerfile",
+  },
+})

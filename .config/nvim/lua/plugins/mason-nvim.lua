@@ -9,8 +9,6 @@ return {
       ensure_installed = {
         "stylua",
         "shfmt",
-        "docker-language-server",
-        "dockerfile-language-server",
         "hadolint",
         "shellcheck",
         "bash-language-server",
