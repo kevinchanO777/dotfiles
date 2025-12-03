@@ -4,7 +4,6 @@ return {
   opts = {
     linters_by_ft = {
       -- Existing linters might be here
-      sh = { "shellcheck" },
       yaml = { "yamllint" },
     },
   },

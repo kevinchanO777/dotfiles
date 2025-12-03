@@ -12,6 +12,7 @@ return {
         "docker-language-server",
         "dockerfile-language-server",
         "shellcheck",
+        "bash-language-server",
         "yamlfmt",
         "kube-linter",
         "yaml-language-server",
