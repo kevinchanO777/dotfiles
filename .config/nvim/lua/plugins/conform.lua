@@ -1,9 +1,9 @@
--- Markdown linter
--- https://www.lazyvim.org/extras/lang/markdown
+-- Formatters
 return {
   "stevearc/conform.nvim",
   opts = {
     formatters = {
+      -- https://www.lazyvim.org/extras/lang/markdown
       ["markdown-toc"] = {
         condition = function(_, ctx)
           for _, line in ipairs(vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)) do
