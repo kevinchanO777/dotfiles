@@ -13,6 +13,7 @@ return {
         "shellcheck",
         "bash-language-server",
         "yamlfmt",
+        "yamllint",
         "kube-linter",
         "yaml-language-server",
         "gopls",
