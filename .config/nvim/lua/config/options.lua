@@ -8,3 +8,6 @@ vim.opt.swapfile = false
 -- cwd      -> Where you open nvim, can be changed by <leader>C or `:cd `
 -- root_dir -> Where .git rsides
 vim.g.root_spec = { ".git" }
+
+-- Highlight the current column
+-- vim.opt.cursorcolumn = true

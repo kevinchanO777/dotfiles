@@ -24,6 +24,13 @@ return {
       float = {
         transparent = true,
       },
+      custom_highlights = function(colors)
+        return {
+          CursorColumn = { bg = colors.surface0 }, -- Use a specific color from the palette
+          -- You can add other custom highlights here too, like Normal (background)
+          -- Normal = { bg = colors.none },
+        }
+      end,
     },
   },
 
