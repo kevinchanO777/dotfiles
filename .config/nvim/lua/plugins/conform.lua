@@ -30,7 +30,6 @@ return {
       css = { "prettier" },
       html = { "prettier" },
       json = { "prettier" },
-      yaml = { "prettier" },
       ["markdown"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
       ["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
     },
