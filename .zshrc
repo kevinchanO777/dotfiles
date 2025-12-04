@@ -6,6 +6,9 @@ source $ZSH/oh-my-zsh.sh
 # Change macOS default config directory
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# Neovim as default EDITOR
+export EDITOR="nvim"
+
 # Oh My Posh custom prompt
 eval "$(oh-my-posh init --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml zsh)"
 
