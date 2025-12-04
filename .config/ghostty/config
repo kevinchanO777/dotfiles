@@ -3,7 +3,13 @@
 # theme = Catppuccin Mocha
 # theme = Ultra Dark
 theme = Github Dark High Contrast
+
+# Background
 background-opacity = 0.90
+background-blur = true
+
+# Titlebar
+# macos-titlebar-style = hidden
 
 # Fonts
 font-size = 16
@@ -13,3 +19,6 @@ keybind = cmd+i=inspector:toggle
 
 # Save with Cmd+S in Vim
 keybind = cmd+s=text:\x1b:w\r
+
+# Other
+mouse-hide-while-typing = true
