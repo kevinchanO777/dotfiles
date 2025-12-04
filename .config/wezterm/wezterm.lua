@@ -10,6 +10,8 @@ config.font_size = 16.0
 
 config.window_decorations = "RESIZE"
 
+config.hide_tab_bar_if_only_one_tab = true
+
 -- keybind = cmd+s=text:\x1b:w\r
 config.keys = {
 	{
