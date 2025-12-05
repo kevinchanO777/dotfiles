@@ -3,6 +3,8 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/image.md
+      image = {},
       lazygit = {
         -- automatically configure lazygit to use the current colorscheme
         -- and integrate edit with the current neovim instance
