@@ -5,6 +5,7 @@ return {
     spec = {
       mode = { "n", "x" },
       { "<leader>C", group = "Change CWD" },
+      { "<leader>Y", group = "Yank File Path" },
     },
   },
 }

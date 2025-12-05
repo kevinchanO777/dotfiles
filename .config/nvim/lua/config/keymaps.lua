@@ -32,7 +32,7 @@ vim.keymap.set("n", "<leader>Cs", function()
 end, { desc = "Change CWD to Startup Directory" })
 
 -- Yank File Path
-vim.keymap.set("n", "<leader>yp", function()
+vim.keymap.set("n", "<leader>Y", function()
   local path = vim.fn.expand("%:p") -- same as above, shorter
   vim.cmd.let('@+ = "' .. path .. '"')
   vim.notify(path)
