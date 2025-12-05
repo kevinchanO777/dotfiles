@@ -37,3 +37,22 @@ vim.keymap.set("n", "<leader>Y", function()
   vim.cmd.let('@+ = "' .. path .. '"')
   vim.notify(path)
 end, { desc = "Yank absolute file path" })
+
+-- TODO: Adjust notify-nvim/noice-nvim color
+--
+-- Toggle LSP diagnostics virtual text
+vim.keymap.set("n", "<leader>uv", function()
+  local current_config = vim.diagnostic.config()
+
+  local is_virtual_text_enabled = current_config and current_config.virtual_text or false
+  local new_virtual_text = not is_virtual_text_enabled
+
+  vim.diagnostic.config({
+    virtual_text = new_virtual_text,
+  })
+  if new_virtual_text then
+    vim.notify("Enable Diagnostics Virtual Text", vim.log.levels.INFO)
+  else
+    vim.notify("Disable Diagnostics Virtual Text", vim.log.levels.WARN)
+  end
+end, { desc = "Toggle Virtual Text Diagnostics" })
