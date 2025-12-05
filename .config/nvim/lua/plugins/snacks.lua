@@ -8,7 +8,7 @@ return {
       lazygit = {
         -- automatically configure lazygit to use the current colorscheme
         -- and integrate edit with the current neovim instance
-        configure = false,
+        configure = true,
       },
       picker = {
         hidden = true, -- for hidden files
