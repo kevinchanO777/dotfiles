@@ -59,4 +59,8 @@
 
 [tig "bind"]
   generic = <Ctrl-h> scroll-left
+  # Ctrl-L overrides default screen-redraw binding
+  # Alternative for screen-redraw: R or Ctrl-r
+  generic = <Ctrl-l> none
   generic = <Ctrl-l> scroll-right
+  generic = <Ctrl-r> screen-redraw
