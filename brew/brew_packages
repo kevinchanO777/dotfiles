@@ -24,6 +24,7 @@ lazygit
 librsvg
 luarocks
 minikube
+ncdu
 neovim
 pandoc
 pinentry-mac
