@@ -43,6 +43,7 @@ alias l='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=n
 alias ll='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -a -l --git -h --time-style=long-iso'
 alias pw="pwgen --capitalize --secure --num-passwords 1 10 | tr -d \"\n\" | pbcopy"
 alias lg='lazygit'
+alias lzd='lazydocker'
 alias gl="git log --all --oneline --graph --decorate --color=always"
 alias gbf="git branch --format='%(refname:short)' | fzf --preview 'git log --oneline --graph --decorate --color=always {} | head -20'"
 
