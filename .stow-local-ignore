@@ -28,3 +28,6 @@ _darcs
 
 # Ignore docs
 ^docs$
+
+# Ignore .DS_Store
+\.DS_Store
