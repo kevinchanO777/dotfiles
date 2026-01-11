@@ -1,0 +1,52 @@
+---
+# yaml-language-server: $schema=https://www.schemastore.org/lazydocker.json
+#
+# References:
+#
+# https://github.com/jesseduffield/lazydocker/blob/master/docs/Config.md
+# https://pkg.go.dev/github.com/jesseduffield/lazydocker@v0.24.3/pkg/config#CustomCommand
+
+customCommands:
+  containers:
+    - name: clear
+      attach: true
+      shell: true
+      command: "clear"
+
+    - name: bash
+      attach: true
+      command: "docker exec -it {{ .Container.ID }} /bin/bash"
+      serviceNames: []
+
+    - name: sh
+      attach: true
+      command: "docker exec -it {{ .Container.ID }} /bin/sh"
+
+    - name: networks
+      description: "List attached network names"
+      attach: true
+      shell: true
+      command: >-
+        docker container inspect {{ .Container.ID }} |
+        jq -r '.[0].NetworkSettings.Networks | keys'
+
+    - name: ping other container
+      attach: true
+      shell: true
+      command: >-
+        echo -n "Container name to ping: " && read name &&
+        docker exec -it {{.Container.ID}} ping -c 4 "$name"
+      description: "Ping another container by name (interactive)"
+
+  networks:
+    - name: clear
+      attach: true
+      shell: true
+      command: "clear"
+
+    - name: all containers in this network
+      attach: true
+      shell: true
+      command: >-
+        docker network inspect {{ .Network.Name }} |
+        jq '.[0].Containers.[]'
