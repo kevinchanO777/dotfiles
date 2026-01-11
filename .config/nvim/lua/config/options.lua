@@ -18,5 +18,9 @@ vim.filetype.add({
     ["Dockerfile*"] = "dockerfile",
     ["dockerfile*"] = "dockerfile",
     ["*.dockerfile"] = "dockerfile",
+    ["Caddyfile"] = "caddy",
+  },
+  extension = {
+    caddy = "caddy",
   },
 })
