@@ -38,6 +38,13 @@ customCommands:
         docker exec -it {{.Container.ID}} ping -c 4 "$name"
       description: "Ping another container by name (interactive)"
 
+  volumes:
+    - name: volume du
+      shell: true
+      attach: true
+      command: >-
+        docker system df -v | sed -n '/VOLUME NAME/,/^ *$/p'
+
   networks:
     - name: clear
       attach: true
