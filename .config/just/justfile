@@ -1,0 +1,29 @@
+# Global justile - `just -g`
+
+alias f := fmt
+alias fd := fmt-dry
+
+[doc('List available recipes')]
+[group('justfile')]
+default:
+    @just -f {{ justfile() }} --list
+
+[confirm('Overwrite justfile (y/n) ?')]
+[doc('Format justfile')]
+[group('justfile')]
+[no-cd]
+fmt:
+    @just --fmt --unstable
+
+[doc('Format justfile (Dry-run)')]
+[group('justfile')]
+[no-cd]
+fmt-dry:
+    @just --fmt --check --unstable
+
+[doc('Get os and architecture')]
+[group('system')]
+system-info:
+    @echo "OS:      {{ os() }} ({{ os_family() }})"
+    @echo "Archi:   {{ arch() }}"
+    @echo "CPUs:    {{ num_cpus() }}"
