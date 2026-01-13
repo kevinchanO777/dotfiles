@@ -2,13 +2,13 @@
 
 alias f := fmt
 alias fd := fmt-dry
+alias upf := up-force
 
 [doc('List available recipes')]
 [group('justfile')]
 default:
     @just -f {{ justfile() }} --list
 
-[confirm('Overwrite justfile (y/n) ?')]
 [doc('Format justfile')]
 [group('justfile')]
 [no-cd]
@@ -27,3 +27,31 @@ system-info:
     @echo "OS:      {{ os() }} ({{ os_family() }})"
     @echo "Archi:   {{ arch() }}"
     @echo "CPUs:    {{ num_cpus() }}"
+
+# ------------ Userful Docker Commands ------------ #
+
+# docker compose up
+[group('Docker')]
+[no-cd]
+up:
+    @docker compose up -d
+
+# docker compose up force recreate
+[group('Docker')]
+[no-cd]
+up-force:
+    @docker compose up -d --force-recreate --remove-orphans
+
+# ------------ Userful Shell Commands ------------ #
+
+# Generate password to clipboard
+[group('Shell')]
+[no-cd]
+pw length="10":
+    @pwgen --capitalize --secure --num-passwords 1 {{ length }} | tr -d "\n" | pbcopy
+
+# Get gpg public key
+[group('Shell')]
+[no-cd]
+get-gpg email=('kevinchan714456@gmail.com'):
+    gpg --armor --export {{ email }}

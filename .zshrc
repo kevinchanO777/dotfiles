@@ -46,6 +46,8 @@ alias lg='lazygit'
 alias lzd='lazydocker'
 alias gl="git log --all --oneline --graph --decorate --color=always"
 alias gbf="git branch --format='%(refname:short)' | fzf --preview 'git log --oneline --graph --decorate --color=always {} | head -20'"
+alias j="just"
+alias jg="just -g"
 
 
 # tmux ssh agent stale socket fix (only when inside tmux)
@@ -85,6 +87,8 @@ source <(helm completion zsh)
 # yq auto-completion
 source <(yq shell-completion zsh)
 
+source <(just --completions zsh)
+
 # Docker auto-completion
 FPATH="$HOME/.docker/completions:$FPATH"
 
@@ -92,6 +96,8 @@ FPATH="$HOME/.docker/completions:$FPATH"
 eval "$(brew shellenv)"
 # Homebrew auto-update frequency (12 days)
 export HOMEBREW_AUTO_UPDATE_SECS=1036800
+
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 
 # fzf
 # Preview file content using bat (https://github.com/sharkdp/bat)
