@@ -1,8 +1,8 @@
 # theme = 12-bit Rainbow
 # theme = Carbonfox
-# theme = Catppuccin Mocha
+theme = Catppuccin Mocha
 # theme = Ultra Dark
-theme = Github Dark High Contrast
+# theme = Github Dark High Contrast
 
 # Background
 background-opacity = 0.90
