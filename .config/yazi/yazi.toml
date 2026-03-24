@@ -15,3 +15,11 @@ play = [
 edit = [
   { run = 'nvim "$@"', block = true, orphan = true, desc = "Neovim", for = "macos" },
 ]
+
+# Do a `yazi --clear-cache` to take effect after changing this
+[preview]
+max_width = 7000
+max_height = 7000
+
+[tasks]
+image_bound = [7000, 7000]
