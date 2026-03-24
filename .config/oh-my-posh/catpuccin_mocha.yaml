@@ -14,15 +14,15 @@ blocks:
   - alignment: left
 
     segments:
-      - type: os
-        style: plain
-        template: "{{.Icon}} "
-        foreground: p:os
+      # - type: os
+      #   style: plain
+      #   template: "{{.Icon}} "
+      #   foreground: p:os
 
       - type: session
         style: plain
-        template: "{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} "
-        foreground: p:whit
+        template: "<p:lavender>{{ if .SSHSession }} {{ end }}</>{{ .UserName }}@<p:white><b>{{ .HostName }}</b></> "
+        foreground: p:white
 
       - type: path
         style: plain
