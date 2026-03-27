@@ -104,11 +104,11 @@ stow -vvvD
 # 1. Create GPG key if needed
 gpg --full-generate-key
 
-# 2. Install pinentry-mac
-brew install pinentry-mac
+# 2. Install pinentry
+brew install pinentry
 
-# 3. Configure GPG agent
-echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+# 2. Install configs
+stow -v .
 
 # 4. Restart GPG agent
 gpgconf --kill gpg-agent
