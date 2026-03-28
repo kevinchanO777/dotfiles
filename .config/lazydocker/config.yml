@@ -22,6 +22,10 @@ customCommands:
       attach: true
       command: "docker exec -it {{ .Container.ID }} /bin/sh"
 
+    - name: force recreate service
+      attach: false
+      command: "docker compose up -d --force-recreate --remove-orphans {{ .Service.Name }}"
+
     - name: networks
       description: "List attached network names"
       attach: true
@@ -43,7 +47,9 @@ customCommands:
       shell: true
       attach: true
       command: >-
-        docker system df -v | sed -n '/VOLUME NAME/,/^ *$/p'
+        docker system df -v |
+        sed -n '/VOLUME NAME/,/^ *$/p' |
+        { IFS= read -r header; echo "$header"; sort -r -h -k 3; }
 
   networks:
     - name: clear
