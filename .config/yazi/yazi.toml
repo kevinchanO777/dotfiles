@@ -20,6 +20,8 @@ edit = [
 [preview]
 max_width = 7000
 max_height = 7000
+image_delay = 100
+image_quality = 65
 
 [tasks]
 image_bound = [7000, 7000]
