@@ -1,0 +1,2 @@
+skip-commit-generation-prompt = true
+merge.no-ff = true
