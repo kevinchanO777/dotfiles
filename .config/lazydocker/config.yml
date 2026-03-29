@@ -13,6 +13,12 @@ customCommands:
       shell: true
       command: "clear"
 
+    - name: dlogs
+      description: "View logs in nvim buffer"
+      attach: true
+      shell: true
+      command: "$XDG_CONFIG_HOME/tmux/vim-edit-docker-logs.sh"
+
     - name: bash
       attach: true
       command: "docker exec -it {{ .Container.ID }} /bin/bash"
