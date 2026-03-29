@@ -1,4 +1,4 @@
-# Global justile - `just -g`
+# Global justile - `just -g` or `alias j = just -g`
 
 alias f := fmt
 alias fd := fmt-dry
@@ -41,6 +41,13 @@ up:
 [no-cd]
 up-force:
     @docker compose up -d --force-recreate --remove-orphans
+
+# View docker logs in neovim
+[group('Docker')]
+[no-cd]
+dlogs:
+    #!/usr/bin/env bash
+    $XDG_CONFIG_HOME/tmux/vim-edit-docker-logs.sh
 
 # ------------ Userful Shell Commands ------------ #
 
