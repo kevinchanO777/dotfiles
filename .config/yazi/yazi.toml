@@ -10,7 +10,7 @@ prepend_rules = [
 
 [opener]
 play = [
-  { run = 'open -a "/System/Applications/QuickTime Player.app" "$@"', orphan = true, desc = "QuickTime Player", for = "macos" },
+  { run = 'open -a "/Applications/IINA.app" "$@"', orphan = true, desc = "IINA", for = "macos" },
 ]
 edit = [
   { run = 'nvim "$@"', block = true, orphan = true, desc = "Neovim", for = "macos" },
