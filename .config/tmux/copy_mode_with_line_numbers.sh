@@ -2,10 +2,12 @@
 
 # Thanks to https://gist.github.com/Nimmidev/2cf4d5cc80dce32d0240ec7b3cfe090f
 
-declare -r LINE_NUMBER_PANE_WIDTH=3
-declare -r LINE_NUMBER_UPDATE_DELAY=0.1
-declare -r COLOR_NUMBERS_RGB="101;112;161"
-declare -r COLOR_ACTIVE_NUMBER_RGB="255;158;100"
+LINE_NUMBER_PANE_WIDTH=3
+LINE_NUMBER_UPDATE_DELAY=0.1
+COLOR_NUMBERS_RGB="101;112;161"
+COLOR_ACTIVE_NUMBER_RGB="255;158;100"
+
+trap '' INT QUIT TERM TSTP
 
 open_line_number_split() {
   local self_path=$(realpath $0)
@@ -14,7 +16,7 @@ open_line_number_split() {
   pgrep -f "$self_path $pane_id" >/dev/null && return
 
   tmux split-window -h -l $LINE_NUMBER_PANE_WIDTH -b "$self_path $pane_id"
-  tmux select-pane -l
+  tmux select-pane -t "$pane_id"
 }
 
 enter_copy_mode() {
