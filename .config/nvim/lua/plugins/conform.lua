@@ -21,8 +21,14 @@ return {
           return #diag > 0
         end,
       },
+      caddy = {
+        command = "caddy",
+        args = { "fmt", "-" },
+        stdin = true,
+      },
     },
     formatters_by_ft = {
+      caddy = { "caddy" },
       javascript = { "prettier" },
       typescript = { "prettier" },
       javascriptreact = { "prettier" },
