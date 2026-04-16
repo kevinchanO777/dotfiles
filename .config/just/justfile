@@ -57,6 +57,12 @@ dlogs:
 pw length="10":
     @pwgen --capitalize --secure --num-passwords 1 {{ length }} | tr -d "\n" | pbcopy
 
+# Generate password to stdout
+[group('Shell')]
+[no-cd]
+pws length="10":
+    @pwgen --capitalize --secure --num-passwords 1 {{ length }}
+
 # Get gpg public key
 [group('Shell')]
 [no-cd]
