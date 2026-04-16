@@ -77,9 +77,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "rose-pine",
       colorscheme = "catppuccin-mocha",
-      -- colorscheme = "github_dark_tritanopia",
     },
   },
 }
