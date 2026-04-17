@@ -26,24 +26,32 @@ vim.filetype.add({
   },
 })
 
---  Allow copy over ssh in nvim
-vim.o.clipboard = "unnamedplus"
+-- Clipboard: OSC52 over SSH, native otherwise
+local is_ssh = vim.env.SSH_CONNECTION or vim.env.SSH_CLIENT
 
-local function paste()
-  return {
-    vim.fn.split(vim.fn.getreg(""), "\n"),
-    vim.fn.getregtype(""),
+if is_ssh then
+  local function paste()
+    return {
+      vim.fn.split(vim.fn.getreg(""), "\n"),
+      vim.fn.getregtype(""),
+    }
+  end
+
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = function(reg)
+        require("vim.ui.clipboard.osc52").copy(reg)
+      end,
+      ["*"] = function(reg)
+        require("vim.ui.clipboard.osc52").copy(reg)
+      end,
+    },
+    paste = {
+      ["+"] = paste,
+      ["*"] = paste,
+    },
   }
+else
+  vim.o.clipboard = "unnamedplus"
 end
-
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = paste,
-    ["*"] = paste,
-  },
-}
