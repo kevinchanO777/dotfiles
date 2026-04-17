@@ -48,6 +48,7 @@ alias gl="git log --all --oneline --graph --decorate --color=always"
 alias gbf="git branch --format='%(refname:short)' | fzf --preview 'git log --oneline --graph --decorate --color=always {} | head -20'"
 alias j="just"
 alias jg="just -g"
+alias k="kubectl"
 
 
 # tmux ssh agent stale socket fix (only when inside tmux)
