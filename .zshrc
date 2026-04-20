@@ -138,6 +138,5 @@ autoload -Uz compinit
 compinit
 
 # fzf-tab after `compinit`
-# Multiple secltion using < ctrl + t >
 zstyle ':fzf-tab:*' fzf-flags --bind "tab:toggle+down"
 source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
