@@ -4,6 +4,10 @@
 git:
   pagers:
     - pager: delta --dark --paging=never --line-numbers
+
+  # WARN: Could break lazygit entirely, set to false if so
+  overrideGpg: true
+
 gui:
   nerdFontsVersion: "3"
 
