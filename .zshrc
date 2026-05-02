@@ -5,7 +5,6 @@ export EDITOR="nvim"
 export KUBE_EDITOR="nvim"
 export MANPAGER='nvim +Man!'
 export GPG_TTY=$(tty)
-export NVM_DIR="$HOME/.nvm"
 export HOMEBREW_AUTO_UPDATE_SECS=1036800
 
 # TOOL SETTINGS
@@ -53,8 +52,11 @@ start_user_agent() {
 if ! agent_works && (is_macos_launchd_socket || [ -z "$SSH_AUTH_SOCK" ]); then start_user_agent; fi
 
 # COMPLETIONS & INIT
-# Load compinit ONCE before completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 load_completions() {
   (( $+commands[kubectl] )) && source <(kubectl completion zsh)
@@ -70,7 +72,6 @@ load_completions
 (( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml)"
 (( $+commands[zoxide] ))      && eval "$(zoxide init --cmd cd zsh)"
 (( $+commands[wt] ))          && eval "$(wt config shell init zsh)"
-[[ -s "$NVM_DIR/nvm.sh" ]]    && source "$NVM_DIR/nvm.sh"
 
 # INTEGRATIONS & SYNTAX
 # WARN: MUST BE LAST!!
