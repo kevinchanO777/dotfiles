@@ -1,145 +1,80 @@
-# Path to your Oh My Zsh installation.
+# ENV
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-source $ZSH/oh-my-zsh.sh
-
-# Change macOS default config directory
 export XDG_CONFIG_HOME="$HOME/.config"
-
-# Neovim as default EDITOR
 export EDITOR="nvim"
-
-# Oh My Posh custom prompt
-eval "$(oh-my-posh init --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml zsh)"
-
-# GPG TUI if no GUI i.e. pinentry
-export GPG_TTY=$(tty)
-
-# Use Neovim for man pages
+export KUBE_EDITOR="nvim"
 export MANPAGER='nvim +Man!'
-
-# Colored man page using less
-# https://www.tecmint.com/view-colored-man-pages-in-linux/
-export GROFF_NO_SGR=1
-
-export LESS_TERMCAP_mb=$"\e[1;32m"
-export LESS_TERMCAP_md=$"\e[1;32m"
-export LESS_TERMCAP_me=$"\e[0m"
-export LESS_TERMCAP_se=$"\e[0m"
-export LESS_TERMCAP_so=$"\e[01;33m"
-export LESS_TERMCAP_ue=$"\e[0m"
-export LESS_TERMCAP_us=$"\e[1;4;31m"
-
-# bat
-export BAT_THEME="Catppuccin Mocha"
-
-# Alias
-alias c=clear
-alias rb="source ~/.zshrc"
-alias path='echo -e ${PATH//:/\\n}'
-alias nv="nvim"
-alias fc="fc -e nvim"
-alias l='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -l --git -h --time-style=long-iso'
-alias ll='eza --color=always --color-scale=all --color-scale-mode=fixed --icons=never --group-directories-first -a -l --git -h --time-style=long-iso'
-alias pw="pwgen --capitalize --secure --num-passwords 1 10 | tr -d \"\n\" | pbcopy"
-alias lg='lazygit'
-alias lzd='lazydocker'
-alias gl="git log --all --oneline --graph --decorate --color=always"
-alias gbf="git branch --format='%(refname:short)' | fzf --preview 'git log --oneline --graph --decorate --color=always {} | head -20'"
-alias j="just"
-alias jg="just -g"
-alias k="kubectl"
-
-
-# tmux ssh agent stale socket fix (only when inside tmux)
-if [ -n "$TMUX" ]; then
-    eval "$(tmux show-env -s | grep '^SSH_')" 2>/dev/null
-fi
-
-# SSH agent management: start a user agent only if current one is unusable or is launchd (macos only) socket
-is_macos_launchd_socket() {
-  [ -n "$SSH_AUTH_SOCK" ] && [[ "$SSH_AUTH_SOCK" == /private/tmp/com.apple.launchd.*/* ]]
-}
-
-agent_works() { ssh-add -l >/dev/null 2>&1; }
-
-start_user_agent() {
-  eval "$(ssh-agent -s)" >/dev/null
-  ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/personal >/dev/null 2>&1
-}
-
-if ! agent_works; then
-  if is_macos_launchd_socket || [ -z "$SSH_AUTH_SOCK" ]; then
-    start_user_agent
-  fi
-fi
-
-# Ghostty shell integration
-if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
-  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
-fi
-
-# kubectl auto-completion
-source <(kubectl completion zsh)
-
-# argocd auto-completion
-source <(argocd completion zsh)
-
-# Helm auto-completion
-source <(helm completion zsh)
-
-# yq auto-completion
-source <(yq shell-completion zsh)
-
-source <(just --completions zsh)
-
-# Docker auto-completion
-FPATH="$HOME/.docker/completions:$FPATH"
-
-# Homebrew auto-completion
-eval "$(brew shellenv)"
-# Homebrew auto-update frequency (12 days)
+export GPG_TTY=$(tty)
+export NVM_DIR="$HOME/.nvm"
 export HOMEBREW_AUTO_UPDATE_SECS=1036800
 
-fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
-
-# fzf
-# Preview file content using bat (https://github.com/sharkdp/bat)
-export FZF_CTRL_T_OPTS="
-  --walker-skip .git,node_modules,target
-  --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-# Use tab to select multiple in vanilla fzf
-export FZF_COMPLETION_OPTS='--multi'
-source <(fzf --zsh)
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# k9s
+# TOOL SETTINGS
+export BAT_THEME="Catppuccin Mocha"
 export K9S_SKIN="catppuccin-mocha"
-# Enable k9s node shell
 export K9S_FEATURE_GATE_NODE_SHELL=true
-# Kubectl edit command will use this env var.
-export KUBE_EDITOR="nvim"
+export FZF_COMPLETION_OPTS='--multi'
+export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target --preview 'bat -n --color=always {}' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-# Plugins
-plugins=()
+# HOMEBREW
+eval "$(brew shellenv)"
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+[[ -d "$HOME/.docker/completions" ]] && fpath=("$HOME/.docker/completions" $fpath)
 
-# zsh-syntax-highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# OH MY ZSH
+plugins=(git) # Add only essential plugins here
+source $ZSH/oh-my-zsh.sh
 
-# zoxide
-eval "$(zoxide init --cmd cd zsh)"
+# ALIASES
+alias c='clear'
+alias rb='source ~/.zshrc'
+alias path='echo -e ${PATH//:/\\n}'
+alias nv='nvim'
+alias fc='fc -e nvim'
+alias l='eza --color=always --color-scale=all --icons=never --group-directories-first -l --git -h --time-style=long-iso'
+alias ll='l -a'
+alias pw='pwgen -cs 10 1 | tr -d "\n" | pbcopy'
+alias lg='lazygit'
+alias lzd='lazydocker'
+alias gl='git log --all --oneline --graph --decorate --color=always'
+alias gbf="git branch --format='%(refname:short)' | fzf --preview 'git log --oneline --graph --decorate --color=always {} | head -20'"
+alias j='just'
+alias jg='just -g'
+alias k='kubectl'
 
-# Worktrunk - managing git worktree
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+# SSH AGENT FIXES
+if [ -n "$TMUX" ]; then eval "$(tmux show-env -s | grep '^SSH_')" 2>/dev/null; fi
 
-autoload -Uz compinit
-compinit
+is_macos_launchd_socket() { [ -n "$SSH_AUTH_SOCK" ] && [[ "$SSH_AUTH_SOCK" == /private/tmp/com.apple.launchd.*/* ]]; }
+agent_works() { ssh-add -l >/dev/null 2>&1; }
+start_user_agent() {
+  eval "$(ssh-agent -s)" >/dev/null
+  ssh-add ~/.ssh/personal >/dev/null 2>&1
+}
+if ! agent_works && (is_macos_launchd_socket || [ -z "$SSH_AUTH_SOCK" ]); then start_user_agent; fi
 
-# WARN: fzf-tab after `compinit`
+# COMPLETIONS & INIT
+# Load compinit ONCE before completions
+autoload -Uz compinit && compinit
+
+load_completions() {
+  (( $+commands[kubectl] )) && source <(kubectl completion zsh)
+  (( $+commands[argocd] ))  && source <(argocd completion zsh)
+  (( $+commands[helm] ))    && source <(helm completion zsh)
+  (( $+commands[just] ))    && source <(just --completions zsh)
+  (( $+commands[yq] ))      && source <(yq shell-completion zsh)
+  (( $+commands[fzf] ))     && source <(fzf --zsh)
+}
+load_completions
+
+# EXTERNAL INITS
+(( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml)"
+(( $+commands[zoxide] ))      && eval "$(zoxide init --cmd cd zsh)"
+(( $+commands[wt] ))          && eval "$(wt config shell init zsh)"
+[[ -s "$NVM_DIR/nvm.sh" ]]    && source "$NVM_DIR/nvm.sh"
+
+# INTEGRATIONS & SYNTAX
+# WARN: MUST BE LAST!!
+[[ -n $GHOSTTY_RESOURCES_DIR ]] && source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 zstyle ':fzf-tab:*' fzf-flags --bind "tab:toggle+down"
-source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
+[[ -f ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh ]] && source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
