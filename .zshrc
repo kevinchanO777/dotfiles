@@ -82,6 +82,9 @@ fi
 # kubectl auto-completion
 source <(kubectl completion zsh)
 
+# argocd auto-completion
+source <(argocd completion zsh)
+
 # Helm auto-completion
 source <(helm completion zsh)
 
@@ -137,6 +140,6 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 autoload -Uz compinit
 compinit
 
-# fzf-tab after `compinit`
+# WARN: fzf-tab after `compinit`
 zstyle ':fzf-tab:*' fzf-flags --bind "tab:toggle+down"
 source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
