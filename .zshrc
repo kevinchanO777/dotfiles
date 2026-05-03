@@ -68,14 +68,12 @@ load_completions() {
 }
 load_completions
 
-# EXTERNAL INITS
 (( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml)"
 (( $+commands[zoxide] ))      && eval "$(zoxide init --cmd cd zsh)"
 (( $+commands[wt] ))          && eval "$(wt config shell init zsh)"
 
-# INTEGRATIONS & SYNTAX
-# WARN: MUST BE LAST!!
 [[ -n $GHOSTTY_RESOURCES_DIR ]] && source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$(brew --prefix)/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
 zstyle ':fzf-tab:*' fzf-flags --bind "tab:toggle+down"
-[[ -f ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh ]] && source ~/.oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh

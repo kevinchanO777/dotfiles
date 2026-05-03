@@ -61,14 +61,6 @@ stow -vvvD
 ### Oh-my-zsh
 
 1. Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#basic-installation)
-2. Install fzf-tab plugin:
-
-   ```bash
-   git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-   ```
-
-3. Copy custom prompt to `~/.oh-my-zsh/themes/robbyrussell.zsh-theme`
-4. See `docs/robbyrussell.zsh-theme` for the theme configuration
 
 ### Tmux
 
