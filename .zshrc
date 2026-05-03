@@ -1,3 +1,13 @@
+# History Settings
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY       # Share history between sessions
+setopt APPEND_HISTORY      # Don't overwrite history
+setopt INC_APPEND_HISTORY  # Write immediately
+setopt HIST_IGNORE_DUPS    # Don't record same command twice
+setopt EXTENDED_HISTORY    # Write timestamps to history
+
 # ENV
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -18,10 +28,6 @@ export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target --preview 'bat -n
 eval "$(brew shellenv)"
 fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 [[ -d "$HOME/.docker/completions" ]] && fpath=("$HOME/.docker/completions" $fpath)
-
-# OH MY ZSH
-plugins=(git) # Add only essential plugins here
-source $ZSH/oh-my-zsh.sh
 
 # ALIASES
 alias c='clear'
