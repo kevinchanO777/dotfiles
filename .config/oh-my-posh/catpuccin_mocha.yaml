@@ -19,13 +19,13 @@ blocks:
     segments:
       - type: session
         style: plain
-        foreground: p:white
+        foreground: p:grey
         template: "{{ if .SSHSession }}<p:lavender> </>{{ end }}{{ .UserName }}@<b>{{
           .HostName }}</b> "
 
       - type: path
         style: plain
-        foreground: p:dir_red
+        foreground: p:pink
         properties:
           style: agnoster_short
           home_icon: "~"
@@ -50,7 +50,7 @@ blocks:
     segments:
       - type: git
         style: plain
-        foreground: p:purple
+        foreground: p:lavender
         properties:
           fetch_status: true
           branch_icon: " "
