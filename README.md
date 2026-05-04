@@ -7,6 +7,12 @@ Bootstrap scripts and dotfiles for macOS
 ![Screenshots](https://i.imgur.com/Ua4AN06.png)
 ![Screenshots](https://i.imgur.com/DRsRZrG.png)
 
+## Prerequisites
+
+- macOS
+- Homebrew
+- Git
+
 ## Quick Start
 
 ```bash
@@ -18,17 +24,7 @@ xargs brew install --cask < brew/brew_casks
 git clone https://github.com/kevinchanO777/dotfiles ~/dotfiles
 cd ~/dotfiles
 stow -vvv .
-
-# 3. Install oh-my-zsh and plugins
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 ```
-
-## Prerequisites
-
-- macOS (tested on latest versions)
-- Homebrew package manager
-- Git
 
 ## Installation
 
@@ -41,7 +37,7 @@ xargs brew install --cask < brew/brew_casks
 
 ### Dotfiles
 
-Using GNU Stow for symlink management:
+Using GNU Stow for dotfiles symlink management:
 
 ```bash
 # Clone to home directory
@@ -58,19 +54,15 @@ stow -vvv .
 stow -vvvD
 ```
 
-### Oh-my-zsh
-
-1. Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#basic-installation)
-
 ### Tmux
 
-1. Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (TPM)
+1. Install [tmux](https://github.com/tmux/tmux) and [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (TPM)
 2. Source the config: `tmux source-file ~/.tmux.conf`
 3. Install plugins: `prefix` + `I`
 
 ### Neovim + LazyVim
 
-1. Install [nvim](https://github.com/neovim/neovim) >= 0.10
+1. Install [nvim](https://github.com/neovim/neovim) >= 0.12 (0.11 should work)
 2. Run `nvim` to initialize LazyVim
 3. Run health check: `:LazyHealth`
 4. Enable extras: `:LazyExtras`
@@ -80,12 +72,6 @@ stow -vvvD
 1. `brew install --cask nikitabobko/tap/aerospace`
 2. Check config path: `aerospace config --config-path`
 3. macOS System Settings → Mission Control → Group windows by application
-
-### Other Tools
-
-- **Delta**: Better git pager (install via Homebrew)
-- **Lazygit**: Git UI tool - see [config](https://github.com/jesseduffield/lazygit)
-- **k9s**: Kubernetes CLI - see [configuration](https://k9scli.io/topics/config/)
 
 ### Git GPG Key Setup
 
@@ -122,6 +108,16 @@ gpgconf --show-configs
 # Restart GPG agent
 killall gpg-agent
 gpgconf --launch gpg-agent
+
+# Manually disable gpg in lazygit and git
+`.gitconfig`
+[commit]
+  gpgSign = false
+
+`lazygit/config.yml`
+git:
+  overrideGpg: false
+
 ```
 
 ### Tmux Plugin Issues
