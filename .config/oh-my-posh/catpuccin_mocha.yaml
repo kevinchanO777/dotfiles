@@ -1,74 +1,70 @@
 $schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+version: 2
 palette:
-  os: "#ACB0BE"
+  grey: "#ACB0BE"
   white: "#F0F3F6"
   pink: "#F5C2E7"
+  red: "#F26019"
+  error_red: "#E03131"
   dir_red: "#FF9492"
   orange: "#FF9F3D"
-  red: "#F26019"
   purple: "#B6C1FF"
   blue: "#89B4FA"
   lavender: "#CB9FFF"
   green: "#63FFA1"
+
 blocks:
-  - alignment: left
-
+  - type: prompt
+    alignment: left
     segments:
-      # - type: os
-      #   style: plain
-      #   template: "{{.Icon}} "
-      #   foreground: p:os
-
       - type: session
         style: plain
-        template: "<p:lavender>{{ if .SSHSession }} {{ end }}</>{{ .UserName }}@<p:white><b>{{ .HostName }}</b></> "
         foreground: p:white
+        template: "{{ if .SSHSession }}<p:lavender> </>{{ end }}{{ .UserName }}@<b>{{
+          .HostName }}</b> "
 
       - type: path
         style: plain
-        properties:
-          folder_icon: ....
-          home_icon: "~"
-          style: agnoster_short
-        template: "{{ .Path }} "
         foreground: p:dir_red
-
-      # https://ohmyposh.dev/docs/segments/cli/kubectl
-      # - type: kubectl
-      #   style: plain
-      #   template: "\ue81d {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
-      #   properties:
-
-    type: prompt
-
-  - alignment: right
-    segments:
-      # https://ohmyposh.dev/docs/segments/scm/git
-      - type: git
         properties:
-          branch_icon: " "
-          cherry_pick_icon: " "
-          commit_icon: " "
-          fetch_status: true
-          fetch_upstream_icon: true
-          merge_icon: " "
-          no_commits_icon: " "
-          rebase_icon: " "
-          revert_icon: " "
-          tag_icon: " "
+          style: agnoster_short
+          home_icon: "~"
+          folder_icon: "...."
+        template: "{{ .Path }} "
 
-        template: "<b>{{ .HEAD }}<\b> {{ if .Commit.Refs.Tags }}<#CB9FFF>{{ .Commit.Refs.Tags }} </>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}<b><#FF9F3D>✗</><\b>{{ end }}"
+      - type: executiontime
+        style: plain
+        foreground: p:grey
+        properties:
+          threshold: 200
+          style: austin
+        template: "{{ .FormattedMs }} "
+
+      - type: status
+        style: plain
+        foreground: p:error_red
+        template: "{{ if .Error }}{{ .Code }}{{ end }}"
+
+  - type: prompt
+    alignment: right
+    segments:
+      - type: git
         style: plain
         foreground: p:purple
+        properties:
+          fetch_status: true
+          branch_icon: " "
+        template: "<b>{{ .HEAD }}</b>{{ if .Commit.Refs.Tags }} <p:lavender>{{
+          .Commit.Refs.Tags }}</>{{ end }}{{ if or (.Working.Changed)
+          (.Staging.Changed) }} <p:orange>✗</>{{ end }}"
 
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
       - type: text
-        foreground: p:green
-        # template: "\n~"
-        # template: "\n$"
-        template: "\n󱞩"
         style: plain
-
-    type: prompt
+        foreground: p:green
+        template: "󱞩"
 
 final_space: true
-version: 3
