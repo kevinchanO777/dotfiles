@@ -19,7 +19,7 @@ blocks:
     segments:
       - type: session
         style: plain
-        foreground: p:grey
+        foreground: p:purple
         template: "{{ if .SSHSession }}<p:lavender> </>{{ end }}{{ .UserName }}@<b>{{
           .HostName }}</b> "
 
