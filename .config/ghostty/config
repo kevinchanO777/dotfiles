@@ -1,8 +1,5 @@
-# theme = 12-bit Rainbow
-# theme = Carbonfox
+# Theme
 theme = Catppuccin Mocha
-# theme = Ultra Dark
-# theme = Github Dark High Contrast
 
 # Background
 background-opacity = 0.90
@@ -16,6 +13,9 @@ font-size = 16
 
 # Key Bindings
 keybind = cmd+i=inspector:toggle
+
+# Option key as a Meta key
+macos-option-as-alt = true
 
 # Save with Cmd+S in Vim
 keybind = cmd+s=text:\x1b:w\r
