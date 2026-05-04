@@ -18,6 +18,11 @@ return {
             hidden = true,
           },
         },
+        win = {
+          wo = {
+            wrap = true,
+          },
+        },
       },
     },
   },

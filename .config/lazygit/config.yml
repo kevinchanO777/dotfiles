@@ -29,14 +29,14 @@ gui:
   spinner:
     # Add a custom moon spinner
     frames:
-      - "\U0001F311" # new moon
-      - "\U0001F312" # waxing crescent
-      - "\U0001F313" # first quarter
-      - "\U0001F314" # waxing gibbous
-      - "\U0001F315" # full moon
-      - "\U0001F316" # waning gibbous
-      - "\U0001F317" # last quarter
-      - "\U0001F318" # waning crescent
+      - "🌑" # new moon
+      - "🌒" # waxing crescent
+      - "🌓" # first quarter
+      - "🌔" # waxing gibbous
+      - "🌕" # full moon
+      - "🌖" # waning gibbous
+      - "🌗" # last quarter
+      - "🌘" # waning crescent
     # The "speed" of the spinner in milliseconds.
     rate: 40
 
