@@ -2,11 +2,14 @@
 #
 # Config reference: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 git:
+  # HACK:
+  # true: Enables full features (e.g., reword), but may hang if GPG passphrase isn't cached.
+  # false: Prevents hangs, but restricts some interactive git features.
+  #
+  overrideGpg: false
+
   pagers:
     - pager: delta --dark --paging=never --line-numbers
-
-  # WARN: Could break lazygit entirely, set to false if so
-  overrideGpg: true
 
 gui:
   nerdFontsVersion: "3"
