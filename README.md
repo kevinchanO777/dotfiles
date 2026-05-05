@@ -85,7 +85,7 @@ gpg --full-generate-key
 # 2. Install pinentry
 brew install pinentry
 
-# 2. Install configs
+# 3. Install configs
 stow -v .
 
 # 4. Restart GPG agent
@@ -108,6 +108,9 @@ gpgconf --show-configs
 # Restart GPG agent
 killall gpg-agent
 gpgconf --launch gpg-agent
+
+# Reload conf:
+gpgconf --reload
 
 # Manually disable gpg in lazygit and git
 `.gitconfig`
