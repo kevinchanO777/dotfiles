@@ -1,17 +1,19 @@
 $schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 version: 2
+
 palette:
   grey: "#ACB0BE"
   white: "#F0F3F6"
   pink: "#F5C2E7"
   red: "#F26019"
-  error_red: "#E03131"
-  dir_red: "#FF9492"
-  orange: "#FF9F3D"
+  error: "#E03131"
+  orange: "#E08A5E"
   purple: "#B6C1FF"
   blue: "#89B4FA"
   lavender: "#CB9FFF"
+  mint: "#6AC9A8"
   green: "#63FFA1"
+  cyan: "#7ED6E8"
 
 blocks:
   - type: prompt
@@ -20,8 +22,8 @@ blocks:
       - type: session
         style: plain
         foreground: p:purple
-        template: "{{ if .SSHSession }}<p:lavender> </>{{ end }}{{ .UserName }}@<b>{{
-          .HostName }}</b> "
+        template: "{{ if .SSHSession }}<p:lavender> </>{{ end }}{{
+          .UserName}}@<b>{{.HostName }}</b> "
 
       - type: path
         style: plain
@@ -42,8 +44,8 @@ blocks:
 
       - type: status
         style: plain
-        foreground: p:error_red
-        template: "{{ if .Error }}{{ .Code }}{{ end }}"
+        foreground: p:error
+        template: "{{ if .Error }}({{ .Code }}){{ end }}"
 
   - type: prompt
     alignment: right
@@ -53,17 +55,26 @@ blocks:
         foreground: p:lavender
         properties:
           fetch_status: true
+          fetch_upstream: true
           branch_icon: " "
-        template: "<b>{{ .HEAD }}</b>{{ if .Commit.Refs.Tags }} <p:lavender>{{
-          .Commit.Refs.Tags }}</>{{ end }}{{ if or (.Working.Changed)
-          (.Staging.Changed) }} <p:orange>✗</>{{ end }}"
+          commit_icon: " "
+          cherry_pick_icon: " "
+          rebase_icon: " "
+          merge_icon: " "
+          tag_icon: " "
+        template: "<b>{{ .HEAD }}</b>{{ if .Commit.Refs.Tags }} <p:blue>{{
+          .Commit.Refs.Tags }}</>{{ end }}{{ if .Working.Changed }}
+          <p:orange>●</>{{ end }}{{ if .Staging.Changed }} <p:mint>●</>{{ end
+          }}{{ if gt .Ahead 0 }} <p:green>↑{{ .Ahead }}</>{{ end }}{{ if gt
+          .Behind 0 }} <p:red>↓{{ .Behind }}</>{{ end }} "
 
   - type: prompt
     alignment: left
+    newline: true
     segments:
       - type: text
         style: plain
         foreground: p:green
-        template: "\n󱞩"
+        template: "➜"
 
 final_space: true
