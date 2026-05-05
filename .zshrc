@@ -91,6 +91,7 @@ load_completions
 
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$(brew --prefix)/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
-zstyle ':completion:*:*:kill:*:processes' fzf-preview 'ps -u $USER -e -o user,pid,ppid,start,time,command' # `kill <tab>` to list processes using fzf-tab
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
 zstyle ':fzf-tab:*' fzf-flags --bind "tab:toggle+down"
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':completion:*:*:kill:*:processes' command 'ps -A -o pid,user,comm'
