@@ -15,14 +15,23 @@ vim.g.root_spec = { ".git" }
 -- Filetype configuration for custom file types
 vim.filetype.add({
   filename = {
-    ["Dockerfile*"] = "dockerfile",
-    ["dockerfile*"] = "dockerfile",
-    ["*.dockerfile"] = "dockerfile",
+    ["^[Dd]ockerfile"] = "dockerfile", -- Matches: Dockerfile, Dockerfile.dev, Dockerfile.prod, dockerfile, dockerfile.dev, etc.
+    ["%.dockerfile$"] = "dockerfile", -- Matches: anything.dockerfile or Anything.Dockerfile
     ["Caddyfile"] = "caddy",
-    ["jsutfile"] = "justfile",
+    ["jsutfile"] = "just",
   },
   extension = {
     caddy = "caddy",
+  },
+  pattern = {
+    [".*%.yaml"] = function(path, bufnr)
+      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, 20, false)
+      local content = table.concat(lines, "\n")
+      if content:find("apiVersion%s*:") and content:find("kind%s*:") then
+        return "yaml.k8s"
+      end
+      return "yaml"
+    end,
   },
 })
 
