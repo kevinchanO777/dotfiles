@@ -1,0 +1,9 @@
+#:schema https://raw.githubusercontent.com/joshmedeski/sesh/main/sesh.schema.json
+
+[[session]]
+path = "~/Downloads/"
+startup_command = "yazi"
+
+[[session]]
+path = "/Volumes/kioxia-2TB/Downloads"
+startup_command = "yazi"

@@ -80,6 +80,7 @@ load_completions() {
   (( $+commands[just] ))    && source <(just --completions zsh)
   (( $+commands[yq] ))      && source <(yq shell-completion zsh)
   (( $+commands[fzf] ))     && source <(fzf --zsh)
+  (( $+commands[sesh] ))    && source <(sesh completion zsh)
 }
 load_completions
 
