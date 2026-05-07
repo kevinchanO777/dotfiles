@@ -1,43 +1,45 @@
--- Lazyvim default auto completion plugin
+-- blink-cmp is a completion plugin with support for LSPs, cmdline, signature help and snippets.
+--
+--
+-- Documentation: https://cmp.saghen.dev/
 return {
   "saghen/blink.cmp",
+  dependencies = { "rafamadriz/friendly-snippets" },
+
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
   opts = {
+    keymap = {
+      preset = "default",
+      ["<C-space>"] = false,
+      ["<C-l>"] = { "show", "show_documentation", "hide_documentation" },
+    },
 
     completion = {
+
       menu = {
+        auto_show_delay_ms = 500,
         border = "rounded",
-        winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
       },
+
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 10,
+        auto_show_delay_ms = 0,
         window = {
           border = "rounded",
-          winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+          max_width = 60,
+          max_height = 20,
         },
       },
-      ghost_text = {
-        -- enabled = vim.g.ai_cmp,
-        enabled = false,
+    },
+
+    signature = {
+      enabled = true,
+      window = {
+        border = "rounded",
+        max_height = 10,
+        show_documentation = true,
       },
     },
-    -- Custom keymaps for documentation navigation
-    keymap = {
-      -- Default: https://cmp.saghen.dev/configuration/keymap.html
-      preset = "default",
-      ["<C-j>"] = { "scroll_documentation_down", "fallback" },
-      ["<C-k>"] = { "scroll_documentation_up", "fallback" },
-      -- ["<C-f>"] = { "show_documentation", "fallback" },
-      -- ["<C-h>"] = { "hide_documentation", "fallback" },
-    },
-  },
-  -- -- Add highlight groups to make background opaque
-  highlights = {
-    BlinkCmpMenu = { bg = "#1e1e2e" },
-    BlinkCmpDoc = { bg = "#1e1e2e" },
-    BlinkCmpMenuBorder = { fg = "#585b70" },
-    BlinkCmpDocBorder = { fg = "#585b70" },
-    BlinkCmpMenuSelection = { bg = "#313244" },
-    BlinkCmpDocCursorLine = { bg = "#313244" },
   },
 }
