@@ -1,6 +1,11 @@
 return {
   "folke/noice.nvim",
   opts = {
+    lsp = {
+      signature = {
+        enabled = false, -- blink-cmp.nvim handle signature
+      },
+    },
     cmdline = {
       view = "cmdline",
     },
