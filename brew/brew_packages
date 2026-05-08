@@ -2,9 +2,11 @@ adembc/tap/lazyssh
 bat
 blueutil
 btop
+coreutils
 croc
 ctop
 derailed/popeye/popeye
+duf
 entr
 eza
 fastfetch
@@ -13,12 +15,15 @@ felixkratz/formulae/borders
 ffmpeg
 fzf
 fzf-tab
+gdu
 git-delta
+gitleaks
 helm
 htop
 imagemagick
 jandedobbeleer/oh-my-posh/oh-my-posh
 jq
+just
 k9s
 lazydocker
 lazygit
@@ -27,6 +32,7 @@ luarocks
 minikube
 ncdu
 neovim
+nnn
 pandoc
 poppler
 pinentry
