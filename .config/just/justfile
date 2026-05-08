@@ -68,3 +68,12 @@ pws length="10":
 [no-cd]
 get-gpg email=('kevinchan714456@gmail.com'):
     gpg --armor --export {{ email }}
+
+# ------------ Userful brew Commands ------------ #
+
+# Remove unused dependencies and installation cache
+[group('brew')]
+[no-cd]
+brew-housekeeping:
+    brew autoremove
+    brew cleanup --prune=all
