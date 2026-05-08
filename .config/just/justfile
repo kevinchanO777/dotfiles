@@ -1,7 +1,5 @@
-# Global justile - `just -g` or `alias j = just -g`
+# Global justile - `just -g` or `alias jg = just -g`
 
-alias f := fmt
-alias fd := fmt-dry
 alias upf := up-force
 
 [doc('List available recipes')]
