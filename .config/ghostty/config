@@ -26,3 +26,6 @@ mouse-hide-while-typing = true
 # SSH
 # Configure SSH to fall back to xterm-256color (same as tmux)
 shell-integration-features = ssh-env
+
+# Add `ghostty` to $PATH
+shell-integration-features = path
