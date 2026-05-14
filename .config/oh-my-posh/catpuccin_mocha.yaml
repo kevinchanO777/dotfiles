@@ -63,7 +63,7 @@ blocks:
           merge_icon: " "
         template: "<b>{{ .HEAD }}</b>{{ if .Commit.Refs.Tags }} <p:blue>{{
           .Commit.Refs.Tags }}</>{{ end }}{{ if or (.Working.Changed) (
-          .Staging.Changes )}}<p:orange><b> ✗</></b>{{ end }}{{ if gt .Ahead 0
+          .Staging.Changed )}}<p:orange><b> ✗</></b>{{ end }}{{ if gt .Ahead 0
           }} <p:green>↑{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }} <p:red>↓{{
           .Behind }}</>{{ end }} "
       - type: text
