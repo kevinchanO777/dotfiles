@@ -4,13 +4,23 @@ ratio = [1, 2, 3]
 
 [open]
 prepend_rules = [
-  { mime = "video/*", use = "play" },
-  { mime = "text/*", use = "edit" },
+  { mime = "video/*", use = [
+    "play",
+    "reveal",
+    "probe",
+  ] },
+  { mime = "text/*", use = [
+    "edit",
+    "reveal",
+  ] },
 ]
 
 [opener]
 play = [
   { run = 'open -a "/Applications/IINA.app" "$@"', orphan = true, desc = "IINA", for = "macos" },
+]
+probe = [
+  { run = 'ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "$1"; read -n1', block = true, desc = "Show Dimensions", for = "macos" },
 ]
 edit = [
   { run = 'nvim "$@"', block = true, orphan = true, desc = "Neovim", for = "macos" },
