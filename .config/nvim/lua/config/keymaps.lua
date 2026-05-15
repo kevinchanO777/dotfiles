@@ -19,6 +19,12 @@ vim.keymap.set("i", "jj", "<Esc>")
 -- Save file using <cmd-s> for macOS
 vim.keymap.set({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
+--
+--
+-- Custom scripts
+--
+--
+
 -- Change CWD
 vim.g.startup_cwd = vim.fn.getcwd()
 
@@ -62,3 +68,23 @@ vim.keymap.set("n", "<leader>uv", function()
     vim.notify("Disable Diagnostics Virtual Text", vim.log.levels.WARN)
   end
 end, { desc = "Toggle Virtual Text Diagnostics" })
+
+-- Generate pseudo-random bytes
+vim.keymap.set("n", "<leader>og", function()
+  local cmd = "openssl rand -base64 32 | tr -d '\\n'"
+  local handle = io.popen(cmd)
+
+  if not handle then
+    vim.notify("Failed to execute openssl command", vim.log.levels.ERROR)
+    return
+  end
+
+  local result = handle:read("*a")
+  handle:close()
+
+  if result and result ~= "" then
+    vim.api.nvim_put({ result }, "c", true, true)
+  else
+    vim.notify("Command returned no output", vim.log.levels.WARN)
+  end
+end, { desc = "Generate Random Base64" })
