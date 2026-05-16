@@ -83,7 +83,7 @@ end, { desc = "Toggle Virtual Text Diagnostics" })
 
 -- Generate pseudo-random bytes
 vim.keymap.set("n", "<leader>og", function()
-  local cmd = "openssl rand -base64 32 | tr -d '\\n'"
+  local cmd = "openssl rand -hex 32 | tr -d '\\n'"
   local handle = io.popen(cmd)
 
   if not handle then
