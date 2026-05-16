@@ -3,9 +3,10 @@ return {
   "mfussenegger/nvim-lint",
   opts = {
     linters_by_ft = {
-      yaml = { "yamllint" },
+      --  Install missing linters by `:MasonInstall <linter>`
+      ["yaml"] = { "yamllint" },
       ["yaml.k8s"] = { "yamllint", "kube_linter" },
-      dockerfile = { "hadolint" },
+      ["dockerfile"] = { "hadolint" },
     },
   },
   config = function(_, opts)
