@@ -15,15 +15,18 @@ vim.g.root_spec = { ".git" }
 -- Filetype configuration for custom file types
 vim.filetype.add({
   filename = {
-    ["^[Dd]ockerfile"] = "dockerfile", -- Matches: Dockerfile, Dockerfile.dev, Dockerfile.prod, dockerfile, dockerfile.dev, etc.
-    ["%.dockerfile$"] = "dockerfile", -- Matches: anything.dockerfile or Anything.Dockerfile
     ["Caddyfile"] = "caddy",
-    ["jsutfile"] = "just",
   },
   extension = {
     caddy = "caddy",
   },
   pattern = {
+    -- See lua pattern: https://www.lua.org/pil/20.2.html
+
+    -- Dockerfile
+    [".*[Dd]ockerfile.*"] = "dockerfile",
+
+    -- k8s manifests
     [".*%.yaml"] = function(path, bufnr)
       local lines = vim.api.nvim_buf_get_lines(bufnr, 0, 20, false)
       local content = table.concat(lines, "\n")
