@@ -4,8 +4,7 @@ return {
   opts = {
     linters_by_ft = {
       --  Install missing linters by `:MasonInstall <linter>`
-      ["yaml"] = { "yamllint" },
-      ["yaml.k8s"] = { "yamllint", "kube_linter" },
+      ["yaml"] = { "yamllint", "kube_linter" },
       ["dockerfile"] = { "hadolint" },
     },
   },

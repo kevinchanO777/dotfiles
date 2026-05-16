@@ -25,16 +25,6 @@ vim.filetype.add({
 
     -- Dockerfile
     [".*[Dd]ockerfile.*"] = "dockerfile",
-
-    -- k8s manifests
-    [".*%.yaml"] = function(path, bufnr)
-      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, 20, false)
-      local content = table.concat(lines, "\n")
-      if content:find("apiVersion%s*:") and content:find("kind%s*:") then
-        return "yaml.k8s"
-      end
-      return "yaml"
-    end,
   },
 })
 
