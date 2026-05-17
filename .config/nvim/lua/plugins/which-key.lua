@@ -7,6 +7,7 @@ return {
       { "<leader>C", group = "Change CWD" },
       { "<leader>Y", group = "Yank File Path" },
       { "<leader>o", group = "Open Custom Scripts" },
+      { "<leader>a", group = "Schema-companion" },
     },
   },
 }

@@ -8,9 +8,14 @@ return {
     config = function(_, opts)
       require("schema-companion").setup(opts)
       -- <leader>as: pick any available schema; <leader>am: pick from auto-matched only
-      vim.keymap.set("n", "<leader>as", require("schema-companion").select_schema, { desc = "Select Schema" })
+      vim.keymap.set("n", "<leader>as", require("schema-companion").select_schema, {
+        desc = "Select Schema",
+      })
       vim.keymap.set("n", "<leader>am", require("schema-companion").select_matching_schema, {
         desc = "Select Matching Schema",
+      })
+      vim.keymap.set("n", "<leader>ar", require("schema-companion").match, {
+        desc = "Rematch Current Buffer",
       })
     end,
   },
@@ -33,36 +38,18 @@ return {
           -- schema-companion manages schemas; disable built-in schemaStore to avoid conflicts
           server_opts.settings.yaml.schemaStore = { enable = false, url = "" }
 
-          -- Matcher: docker-compose files → official compose-spec.json
-          local compose_matcher = { name = "DockerComposeMatcher" }
-          function compose_matcher.match(_, _, bufnr)
-            local bufname = vim.api.nvim_buf_get_name(bufnr)
-            local filename = vim.fn.fnamemodify(bufname, ":t")
-            for _, p in ipairs({
-              "docker-compose*.yaml",
-              "docker-compose*.yml",
-              "compose*.yaml",
-              "compose*.yml",
-            }) do
-              if vim.fn.match(filename, vim.fn.glob2regpat(p)) >= 0 then
-                return {
-                  {
-                    name = "Docker Compose Specification",
-                    uri = "https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json",
-                    source = compose_matcher.name,
-                  },
-                }
-              end
-            end
-            return {}
-          end
-
           -- Sources are evaluated in order; first match wins for selection,
           -- but all matched schemas are available for manual override via <leader>as.
           local adapter = require("schema-companion").adapters.yamlls.setup({
             sources = {
               require("schema-companion").sources.matchers.kubernetes.setup({ version = "master" }),
-              compose_matcher,
+              require("schema-companion").sources.lsp.setup(),
+              require("schema-companion").sources.schemas.setup({
+                {
+                  name = "Kubernetes master",
+                  uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master-standalone-strict/all.json",
+                },
+              }),
             },
           })
 
