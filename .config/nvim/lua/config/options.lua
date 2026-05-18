@@ -3,6 +3,12 @@
 -- Add any additional options here
 vim.opt.swapfile = false
 
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  },
+})
+
 -- https://www.reddit.com/r/neovim/comments/1ajpdrx/lazyvim_weird_live_grep_root_dir_functionality_in/
 --
 -- cwd      -> Where you open nvim, can be changed by <leader>C or `:cd `
