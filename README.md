@@ -27,6 +27,14 @@ stow -vvv .
 
 ## Details
 
+### Homebrew
+
+To generate Brewfile:
+
+```bash
+brew bundle dump --force --describe
+```
+
 ### Dotfiles
 
 Using GNU Stow for dotfiles symlink management:
@@ -49,8 +57,13 @@ stow -vvvD
 ### Tmux
 
 1. Install [tmux](https://github.com/tmux/tmux) and [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (TPM)
-2. Source the config: `tmux source-file ~/.tmux.conf`
-3. Install plugins: `prefix` + `I`
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+1. Source the config: `tmux source-file ~/.tmux.conf`
+2. Install plugins: `prefix` + `I`
 
 ### Neovim + LazyVim
 
@@ -61,9 +74,8 @@ stow -vvvD
 
 ### Aerospace (Tiling Window Manager)
 
-1. `brew install --cask nikitabobko/tap/aerospace`
-2. Check config path: `aerospace config --config-path`
-3. macOS System Settings → Mission Control → Group windows by application
+1. Check config path: `aerospace config --config-path`
+2. macOS System Settings → Mission Control → Group windows by application
 
 ### Git GPG Key Setup
 

@@ -1,4 +1,5 @@
 tap "achannarasappa/tap"
+tap "adembc/tap"
 tap "derailed/popeye"
 tap "felixkratz/formulae"
 tap "hashicorp/tap"
@@ -28,6 +29,8 @@ brew "caddy"
 brew "librsvg"
 # Versatile and fast Unicode/ASCII/ANSI graphics renderer
 brew "chafa"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # Core component of the AcoustID project (Audio fingerprinting)
 brew "chromaprint"
 # Anti-virus software
@@ -36,6 +39,8 @@ brew "clamav"
 brew "coreutils"
 # Securely send things from one computer to another
 brew "croc"
+# Top-like interface for container metrics
+brew "ctop"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
 # Run arbitrary commands when files change
@@ -56,8 +61,6 @@ brew "fnm"
 brew "fzf"
 # Replace zsh completion selection menu with fzf
 brew "fzf-tab"
-# Command-line downloader for image-hosting site galleries and collections
-brew "gallery-dl"
 # Disk usage analyzer with console interface written in Go
 brew "gdu"
 # GitHub command-line tool
@@ -102,8 +105,6 @@ brew "lazycut"
 brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
-# Terminal-based SSH manager
-brew "lazyssh"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Sudoless performance monitoring for Apple Silicon processors
@@ -136,8 +137,6 @@ brew "pstree"
 brew "pwgen"
 # Python version management
 brew "pyenv"
-# Generic machine emulator and virtualizer
-brew "qemu"
 # Rsync for cloud storage
 brew "rclone"
 # Extremely fast tool to remove dupes and other lint from your filesystem
@@ -186,15 +185,18 @@ brew "yq"
 brew "zoxide"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Terminal stock ticker with live updates and position tracking
-brew "achannarasappa/tap/ticker"
+# A simple terminal UI for managing SSH connections.  
+brew "adembc/tap/lazyssh"
 # A Kubernetes Cluster sanitizer and linter!
 brew "derailed/popeye/popeye"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Prompt theme engine for any shell
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace"
 cask "font-fira-code"
+cask "font-hack-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
@@ -209,3 +211,5 @@ cask "jordanbaird-ice"
 cask "keka"
 # Replacement for Docker Desktop
 cask "orbstack"
+# System monitor for the menu bar
+cask "stats"
