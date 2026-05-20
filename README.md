@@ -16,9 +16,8 @@ Bootstrap scripts and dotfiles for macOS
 ## Quick Start
 
 ```bash
-# 1. Install Homebrew packages
-xargs brew install < brew/brew_packages
-xargs brew install --cask < brew/brew_casks
+# 1. Install Homebrew packages from `Brewfile`
+brew bundle
 
 # 2. Clone and setup dotfiles
 git clone https://github.com/kevinchanO777/dotfiles ~/dotfiles
@@ -26,14 +25,7 @@ cd ~/dotfiles
 stow -vvv .
 ```
 
-## Installation
-
-### Homebrew
-
-```bash
-xargs brew install < brew/brew_packages
-xargs brew install --cask < brew/brew_casks
-```
+## Details
 
 ### Dotfiles
 
