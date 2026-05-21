@@ -141,13 +141,3 @@ git:
 
 - If bat throws a warning and falls back to default theme, reload the theme
   using `bat cache --build`
-
-## Directory Structure
-
-```sh
-dotfiles/
-├── .config/          # Application configs
-├── brew/             # Homebrew packages list
-├── docs/             # Documentation files
-└── .stow-local-ignore # Files to ignore during stow
-```
