@@ -23,8 +23,8 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-# Ignore brew
-^brew$
+# Ignore Brewfile
+^Brewfile$
 
 # Ignore docs
 ^docs$
