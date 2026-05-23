@@ -9,6 +9,9 @@ vim.diagnostic.config({
   },
 })
 
+-- Toggle autoformat by <leader>uF
+vim.g.autoformat = false
+
 -- https://www.reddit.com/r/neovim/comments/1ajpdrx/lazyvim_weird_live_grep_root_dir_functionality_in/
 --
 -- cwd      -> Where you open nvim, can be changed by <leader>C or `:cd `
