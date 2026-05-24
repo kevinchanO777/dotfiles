@@ -2,11 +2,19 @@
   // See: https://opencode.ai/docs/keybinds/
   "$schema": "https://opencode.ai/tui.json",
   "keybinds": {
+
     "app_exit": "ctrl+c", // This allow ctrl+d to NOT quit the app
+
     "command_list": "alt+p",
+
     "messages_line_up": "ctrl+p",
     "messages_line_down": "ctrl+n",
     "messages_half_page_up": "ctrl+u",
     "messages_half_page_down": "ctrl+d",
+
+    "leader": "ctrl+x",
+    "messages_copy": "<leader>y",
+    "messages_undo": "<leader>u",
+    "messages_redo": "<leader>r",
   }
 }
