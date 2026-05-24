@@ -1,0 +1,11 @@
+{
+  // See: https://opencode.ai/docs/keybinds/
+  "$schema": "https://opencode.ai/tui.json",
+  "keybinds": {
+    "command_list": "alt+p",
+    "messages_line_up": "ctrl+p",
+    "messages_line_down": "ctrl+n",
+    "messages_half_page_up": "ctrl+alt+u",
+    "messages_half_page_down": "ctrl+alt+d",
+  }
+}
