@@ -3,11 +3,8 @@
 -- Add any additional options here
 vim.opt.swapfile = false
 
-vim.diagnostic.config({
-  float = {
-    border = "rounded",
-  },
-})
+-- Set default border style for floating window
+vim.o.winborder = "rounded"
 
 -- Toggle autoformat by <leader>uF
 vim.g.autoformat = false
