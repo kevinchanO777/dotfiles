@@ -1,3 +1,9 @@
 .config/k9s/config.yaml
 .config/raycast
 .DS_Store
+
+# lima directory, includes disk images
+_lima/
+
+# unix sockets
+*.sock
