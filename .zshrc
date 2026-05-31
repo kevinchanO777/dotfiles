@@ -35,8 +35,33 @@ export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target --preview 'bat -n
 
 # HOMEBREW
 eval "$(brew shellenv)"
-fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+fpath=($HOME/.zsh/completions $HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 [[ -d "$HOME/.docker/completions" ]] && fpath=("$HOME/.docker/completions" $fpath)
+
+# COMPLETION CACHE
+_completion_cache_dir="$HOME/.zsh/cache/completions"
+_needs_rebuild=0
+_zsh_cache_completion() {
+  local cmd=$1; shift
+  local comp_file="${_completion_cache_dir}/_${cmd}"
+  local bin_path=$(command -v "$cmd" 2>/dev/null)
+  [[ -n "$bin_path" ]] || return
+  if [[ ! -s "$comp_file" ]] || [[ "$bin_path" -nt "$comp_file" ]]; then
+    mkdir -p "$_completion_cache_dir" 2>/dev/null
+    "$@" > "$comp_file" 2>/dev/null
+    _needs_rebuild=1
+  fi
+}
+
+_zsh_cache_completion kubectl kubectl completion zsh
+_zsh_cache_completion argocd argocd completion zsh
+_zsh_cache_completion helm helm completion zsh
+_zsh_cache_completion just env JUST_COMPLETE=zsh just
+_zsh_cache_completion yq yq shell-completion zsh
+_zsh_cache_completion sesh sesh completion zsh
+_zsh_cache_completion trivy trivy completion zsh
+
+fpath=("$_completion_cache_dir" $fpath)
 
 # ALIASES
 alias c='clear'
@@ -66,23 +91,19 @@ start_user_agent() {
 }
 if ! agent_works && (is_macos_launchd_socket || [ -z "$SSH_AUTH_SOCK" ]); then start_user_agent; fi
 
-# COMPLETIONS & INIT
+# COMPINIT
 autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
+if [[ ! -f ~/.zcompdump ]] || [[ ~/.zshrc -nt ~/.zcompdump ]] || (( _needs_rebuild )); then
   compinit
-done
-compinit -C
+else
+  compinit -C
+fi
 
-load_completions() {
-  (( $+commands[kubectl] )) && source <(kubectl completion zsh)
-  (( $+commands[argocd] ))  && source <(argocd completion zsh)
-  (( $+commands[helm] ))    && source <(helm completion zsh)
-  (( $+commands[just] ))    && source <(just --completions zsh)
-  (( $+commands[yq] ))      && source <(yq shell-completion zsh)
-  (( $+commands[fzf] ))     && source <(fzf --zsh)
-  (( $+commands[sesh] ))    && source <(sesh completion zsh)
-}
-load_completions
+# fzf key bindings + completions
+(( $+commands[fzf] )) && source <(fzf --zsh)
+
+unset _needs_rebuild _completion_cache_dir
+unfunction _zsh_cache_completion
 
 (( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml)"
 (( $+commands[zoxide] ))      && eval "$(zoxide init --cmd cd zsh)"
