@@ -35,12 +35,24 @@ brew "ffmpeg"
 brew "chromaprint"
 # Anti-virus software
 brew "clamav"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima", restart_service: :changed
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Securely send things from one computer to another
 brew "croc"
 # Top-like interface for container metrics
 brew "ctop"
+# Tool for exploring each layer in a docker image
+brew "dive"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
+# Isolated development environments using Docker
+brew "docker-compose"
+# Platform keystore credential helper for Docker
+brew "docker-credential-helper"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
 # Run arbitrary commands when files change
@@ -105,6 +117,8 @@ brew "lazycut"
 brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Terminal-based SSH manager
+brew "lazyssh"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Sudoless performance monitoring for Apple Silicon processors
@@ -147,6 +161,8 @@ brew "sesh"
 brew "sevenzip"
 # SMART hard drive monitoring
 brew "smartmontools"
+# SOcket CAT: netcat on steroids
+brew "socat"
 # Editor of encrypted files
 brew "sops"
 # Tail multiple Kubernetes pods & their containers
