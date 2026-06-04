@@ -105,7 +105,7 @@ fi
 unset _needs_rebuild _completion_cache_dir
 unfunction _zsh_cache_completion
 
-(( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/catpuccin_mocha.yaml)"
+(( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/catppuccin_mocha.yaml)"
 (( $+commands[zoxide] ))      && eval "$(zoxide init --cmd cd zsh)"
 (( $+commands[wt] ))          && eval "$(wt config shell init zsh)"
 
