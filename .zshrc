@@ -20,6 +20,7 @@ bindkey -e  # Emacs mode
 # ENV
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
+export COLIMA_HOME="$XDG_CONFIG_HOME/colima"
 export EDITOR="nvim"
 export KUBE_EDITOR="nvim"
 export MANPAGER='nvim +Man!'
