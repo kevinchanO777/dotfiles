@@ -141,3 +141,19 @@ git:
 
 - If bat throws a warning and falls back to default theme, reload the theme
   using `bat cache --build`
+
+
+# Colima + Docker!!!!!!!!!!!
+
+
+`colima docker docker-compose docker-buildx docker-credential-helper`
+
+# Create the plugins directory if it doesn't exist
+
+`mkdir -p ~/.docker/cli-plugins`
+
+# Symlink Buildx
+ln -sfn $(brew --prefix docker-buildx)/bin/docker-buildx ~/.docker/cli-plugins/docker-buildx
+
+# Symlink Compose
+ln -sfn $(brew --prefix docker-compose)/bin/docker-compose ~/.docker/cli-plugins/docker-compose
