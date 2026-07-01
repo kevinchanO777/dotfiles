@@ -6,7 +6,7 @@ cpu: 6
 # NOTE: value can only be increased after virtual machine has been created.
 #
 # Default: 100
-disk: 100
+disk: 20
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
@@ -71,7 +71,7 @@ network:
   # Assign reachable IP address to the virtual machine.
   # NOTE: this is currently macOS only and ignored on Linux.
   # Default: false
-  address: false
+  address: true
   
   # Network mode for the virtual machine (shared, bridged).
   # NOTE: this is currently macOS only and ignored on Linux.
@@ -234,7 +234,9 @@ cpuType: ""
 #     script: echo "everything is ready"
 #
 # Default: []
-provision: null
+provision:
+  - mode: system
+    script: apt-get update && apt-get install htop btop vim
 
 # Modify ~/.ssh/config automatically to include a SSH config for the virtual machine.
 # SSH config will still be generated in $COLIMA_HOME/ssh_config regardless.
@@ -261,9 +263,9 @@ sshPort: 0
 # Colima default behaviour: $HOME is mounted as writable.
 # Default: []
 mounts:
-  - location: /Users
+  - location: /Users/kevinhmchan
     writable: true
-  - location: /Volumes
+  - location: /Volumes/kioxia-2TB
     writable: true
 
 # Specify a custom disk image for the virtual machine.
@@ -273,6 +275,10 @@ mounts:
 #
 # Default: ""
 diskImage: ""
+
+# Use the custom disk image even if it does NOT match a supported release image.
+# WARNING: This bypasses validating the image and is a completely unsupported!
+forceDiskImage: false
 
 # Size of the disk in GiB for the root filesystem of the virtual machine.
 # This value is ignored if no runtime is in use. i.e. `none` runtime.
