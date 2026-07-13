@@ -75,3 +75,9 @@ get-gpg email=('kevinchan714456@gmail.com'):
 brew-housekeeping:
     brew autoremove
     brew cleanup --prune=all
+
+# ------------ Userful macOS Commands ------------ #
+
+# Unlock macOS keychain
+unlock-keychain:
+    security unlock-keychain login.keychain
