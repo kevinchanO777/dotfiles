@@ -21,7 +21,7 @@ bindkey -e  # Emacs mode
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 export COLIMA_HOME="$XDG_CONFIG_HOME/colima"
-export DOCKER_HOST="unix://$HOME/.config/colima/default/docker.sock"
+export DOCKER_CONTEXT=colima
 export EDITOR="nvim"
 export KUBE_EDITOR="nvim"
 export MANPAGER='nvim +Man!'
