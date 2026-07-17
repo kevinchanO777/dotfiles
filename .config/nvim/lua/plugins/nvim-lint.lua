@@ -6,6 +6,8 @@ return {
       --  Install missing linters by `:MasonInstall <linter>`
       ["yaml"] = { "yamllint", "kube_linter" },
       ["dockerfile"] = { "hadolint" },
+      ["sh"] = { "shellcheck" },
+      ["bash"] = { "shellcheck" },
     },
   },
   config = function(_, opts)
