@@ -7,3 +7,6 @@ _lima/
 
 # unix sockets
 *.sock
+
+# glances local password
+glances.pwd
