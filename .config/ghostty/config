@@ -2,7 +2,7 @@
 theme = Catppuccin Mocha
 
 # custom-shader: https://github.com/0xhckr/ghostty-shaders
-# custom-shader = $XDG_CONFIG_HOME/ghostty/shaders/starfield-colors.glsl
+# custom-shader = ~/.config/ghostty/shaders/starfield-colors.glsl
 
 # Background
 background-opacity = 0.90
