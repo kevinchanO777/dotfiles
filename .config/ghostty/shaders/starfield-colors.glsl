@@ -4,11 +4,17 @@ const bool transparent = false;
 // terminal contents luminance threshold to be considered background (0.0 to 1.0)
 const float threshold = 0.15;
 
+// star blend factor (0.0 = no stars, 1.0 = full stars)
+const float starBlend = 0.4;
+
+// animation speed multiplier (0.0 = static, 1.0 = normal, 2.0 = double speed)
+const float speed = 0.2;
+
 // divisions of grid
 const float repeats = 30.;
 
 // number of layers
-const float layers = 21.;
+const float layers = 15.;
 
 // star colours
 const vec3 blue = vec3(51., 64., 195.) / 255.;
@@ -95,7 +101,7 @@ float perlin2(vec2 uv, int octaves, float pscale) {
 }
 
 vec3 stars(vec2 uv, float offset) {
-    float timeScale = -(iTime + offset) / layers;
+    float timeScale = -(iTime * speed + offset) / layers;
     float trans = fract(timeScale);
     float newRnd = floor(timeScale);
     vec3 col = vec3(0.);
@@ -151,7 +157,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     // Make a mask that is 1.0 where the terminal content is not black
     float mask = 1 - step(threshold, luminance(terminalColor.rgb));
-    vec3 blendedColor = mix(terminalColor.rgb, col, mask);
+    vec3 blendedColor = mix(terminalColor.rgb, col, mask * starBlend);
 
     // Apply terminal's alpha to control overall opacity
     fragColor = vec4(blendedColor, terminalColor.a);
