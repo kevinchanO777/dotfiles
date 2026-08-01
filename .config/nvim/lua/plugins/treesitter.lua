@@ -1,3 +1,4 @@
+-- See: https://www.lazyvim.org/plugins/treesitter#nvim-treesitter
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -5,6 +6,7 @@ return {
     opts = {
       ensure_installed = {
         "caddy",
+        "just",
       },
     },
   },
