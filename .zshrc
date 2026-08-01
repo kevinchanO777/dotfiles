@@ -54,6 +54,7 @@ _zsh_cache_completion() {
 }
 
 _zsh_cache_completion kubectl kubectl completion zsh
+_zsh_cache_completion kind kind completion zsh
 _zsh_cache_completion argocd argocd completion zsh
 _zsh_cache_completion helm helm completion zsh
 _zsh_cache_completion just env JUST_COMPLETE=zsh just
