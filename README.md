@@ -67,7 +67,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ### Neovim + LazyVim
 
-1. Install [nvim](https://github.com/neovim/neovim) >= 0.12 (0.11 should work)
+1. Install [nvim](https://github.com/neovim/neovim) >= 0.12.4
 2. Run `nvim` to initialize LazyVim
 3. Run health check: `:LazyHealth`
 4. Enable extras: `:LazyExtras`
