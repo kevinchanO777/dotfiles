@@ -40,6 +40,12 @@ up:
 up-force:
     @docker compose up -d --force-recreate --remove-orphans
 
+# docker compose down
+[group('Docker')]
+[no-cd]
+down:
+    @docker compose down
+
 # View docker logs in neovim
 [group('Docker')]
 [no-cd]
