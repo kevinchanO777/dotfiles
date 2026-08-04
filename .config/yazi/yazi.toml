@@ -25,6 +25,9 @@ probe = [
 edit = [
   { run = 'nvim "$@"', block = true, orphan = true, desc = "Neovim", for = "macos" },
 ]
+extract = [
+	{ run = 'open -a "The Unarchiver" %s', desc = "Extract with The Unarchiver", orphan = true, for = "macos" },
+]
 
 # Do a `yazi --clear-cache` to take effect after changing this
 [preview]
