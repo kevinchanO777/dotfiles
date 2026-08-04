@@ -1,5 +1,7 @@
-[plugin]
-deps = []
+[[plugin.deps]]
+use = "walldmtd/confirm-open"
+rev = "058b916"
+hash = "c86ac0d7f358e800ef43f7a714d500cb"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"

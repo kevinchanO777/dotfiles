@@ -1,0 +1,5 @@
+[mgr]
+prepend_keymap = [
+    { on = "o", run = "plugin confirm-open", desc = "Open selected files"},
+    { on = "<Enter>", run = "plugin confirm-open", desc = "Open selected files"}
+]
