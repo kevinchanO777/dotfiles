@@ -25,8 +25,9 @@ probe = [
 edit = [
   { run = 'nvim "$@"', block = true, orphan = true, desc = "Neovim", for = "macos" },
 ]
-extract = [{ run = 'unar -d %s', desc = "Extract with unar", block = true }]
-
+extract = [
+  { run = 'for f in "$@"; do unar -d "$f"; done', desc = "Extract with unar", block = true },
+]
 
 # Do a `yazi --clear-cache` to take effect after changing this
 [preview]
